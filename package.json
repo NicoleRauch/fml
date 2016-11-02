@@ -1,0 +1,17 @@
+{
+  "name": "mymovielist",
+  "private": true,
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Christoph Haefner",
+  "license": "MIT",
+  "dependencies": {
+    "next": "^1.0.2"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  }
+}
