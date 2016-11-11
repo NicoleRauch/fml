@@ -1,4 +1,4 @@
-node('linux') {
+node('master') {
 	stage('Checkout') {
 		checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://gitlab.christophhaefner.de/web/fml.git']]])
 	}
