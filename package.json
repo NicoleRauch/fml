@@ -10,6 +10,7 @@
     "next": "^1.0.2"
   },
   "scripts": {
+    "test": "exit 1;",
     "dev": "next",
     "start": "next build && next start"
   }
