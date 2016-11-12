@@ -10,5 +10,9 @@ node('master') {
 	stage('Test') {
 		sh './jenkins-test.sh'
 	}
+
+	stage('Docker Image Tag') {
+		sh './jenkins-docker-image-tag.sh'
+	}
 }
 
