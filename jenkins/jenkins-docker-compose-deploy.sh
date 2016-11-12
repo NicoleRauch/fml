@@ -5,5 +5,7 @@ fml:
     ports:
         - "3001:3000"
 " > docker-compose.yml
-sudo docker-compose -p $JOB_NAME up -d
+sudo docker-compose -p $JOB_NAME stop
+sudo docker-compose -p $JOB_NAME rm
+sudo docker-compose -p $JOB_NAME up -d --force-recreate
 
