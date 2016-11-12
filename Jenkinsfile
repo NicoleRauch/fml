@@ -4,20 +4,20 @@ node('master') {
 	}
 
 	stage('Build') {
-		sh './jenkins-build.sh'
+		sh './jenkins/jenkins-build.sh'
 	}
 
 	stage('Test') {
-		sh './jenkins-test.sh'
+		sh './jenkins/jenkins-test.sh'
 	}
 
 	stage('Docker Image') {
-		sh './jenkins-docker-image-tag.sh'
-		sh './jenkins-docker-image-push.sh'
+		sh './jenkins/jenkins-docker-image-tag.sh'
+		sh './jenkins/jenkins-docker-image-push.sh'
 	}
 
 	stage('docker-compose Deploy') {
-		sh './jenkins-docker-compose-deploy.sh'
+		sh './jenkins/jenkins-docker-compose-deploy.sh'
 	}
 }
 
