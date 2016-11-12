@@ -14,5 +14,9 @@ node('master') {
 	stage('Docker Image Tag') {
 		sh './jenkins-docker-image-tag.sh'
 	}
+
+	stage('docker-compose Deploy') {
+		sh './jenkins-docker-compose-deploy.sh'
+	}
 }
 
