@@ -2,6 +2,7 @@ node('master') {
 
 try {
 	stage('Checkout') {
+		updateGitlabCommitStatus name: 'jenkins', state: 'pending'
 		checkout scm
 	}
 
