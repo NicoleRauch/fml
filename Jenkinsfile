@@ -4,6 +4,7 @@ node('master') {
 	}
 
 	stage('Build') {
+		updateGitlabCommitStatus name: 'jenkins', state: 'running'
 		sh './jenkins/jenkins-build.sh'
 	}
 
@@ -22,6 +23,7 @@ node('master') {
 
 	stage('External Tests') {
 		sh './jenkins/jenkins-external-tests.sh'
+		updateGitlabCommitStatus name: 'jenkins', state: 'success'
 	}
 }
 
