@@ -22,7 +22,7 @@ node('master') {
 	}
 
 	stage('External Tests') {
-		sleep 5
+		sleep 60
 		sh './jenkins/jenkins-external-tests.sh'
 		updateGitlabCommitStatus name: 'jenkins', state: 'success'
 	}
