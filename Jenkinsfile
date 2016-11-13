@@ -1,4 +1,6 @@
 node('master') {
+
+try {
 	stage('Checkout') {
 		checkout scm
 	}
@@ -26,5 +28,10 @@ node('master') {
 		sh './jenkins/jenkins-external-tests.sh'
 		updateGitlabCommitStatus name: 'jenkins', state: 'success'
 	}
+} catch (cerr) {
+	updateGitlabCommitStatus name: 'jenkins', state: 'failed'
+	throw err
+}
+
 }
 
