@@ -27,6 +27,10 @@ try {
 	stage('External Tests') {
 		sleep 30
 		sh './jenkins/jenkins-external-tests.sh'
+	}
+
+	stage('Beta Deploy') {
+		sh './jenkins/jenkins-beta-deploy.sh'
 		updateGitlabCommitStatus name: 'jenkins', state: 'success'
 	}
 } catch (cerr) {
