@@ -16,7 +16,7 @@ node('master') {
 		sh './jenkins/jenkins-docker-image-push.sh'
 	}
 
-	stage('docker-compose Deploy') {
+	stage('Dev Deploy') {
 		sh './jenkins/jenkins-docker-compose-deploy.sh'
 	}
 }
