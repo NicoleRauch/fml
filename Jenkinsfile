@@ -7,8 +7,8 @@ node('master') {
 		sh './jenkins/jenkins-build.sh'
 	}
 
-	stage('Test') {
-		sh './jenkins/jenkins-test.sh'
+	stage('Internal Tests') {
+		sh './jenkins/jenkins-internal-tests.sh'
 	}
 
 	stage('Docker Image') {
