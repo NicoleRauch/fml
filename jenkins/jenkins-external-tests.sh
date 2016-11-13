@@ -1,5 +1,5 @@
 file=index.html
-minimumsize=2000
+minimumsize=1000
 
 echo "wget fml.dev.christophhaefner.de -O $file";
 wget fml.dev.christophhaefner.de -O $file;
