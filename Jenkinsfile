@@ -19,5 +19,9 @@ node('master') {
 	stage('Dev Deploy') {
 		sh './jenkins/jenkins-docker-compose-deploy.sh'
 	}
+
+	stage('External Tests') {
+		sh './jenkins/jenkins-external-tests.sh'
+	}
 }
 
