@@ -21,7 +21,7 @@ try {
 	}
 
 	stage('Dev Deploy') {
-		sh './jenkins/jenkins-docker-compose-deploy.sh'
+		sh './jenkins/jenkins-dev-deploy.sh'
 	}
 
 	stage('External Tests') {
