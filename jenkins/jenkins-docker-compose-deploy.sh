@@ -6,6 +6,7 @@ fml:
         - "3000:3000"
 " > docker-compose.yml
 sudo docker-compose -p $JOB_NAME stop
-sudo docker-compose -p $JOB_NAME rm
+# -v => Remove volumes associated with containers
+sudo docker-compose -p $JOB_NAME rm --force -v
 sudo docker-compose -p $JOB_NAME up -d --force-recreate
 
