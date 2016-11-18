@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Head from 'next/head';
 
 import defaultPage from '../hocs/defaultPage';
@@ -11,7 +12,7 @@ const LoggedInDiv = () => (
 
 const NotLoggedInDiv = () => (
 	<div>
-		Not logged in!
+		<p>Not logged in! <Link href='/auth/signin'>Proceed to Signin</Link></p>
     </div>
 )
 
