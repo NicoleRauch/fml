@@ -6,7 +6,7 @@ import defaultPage from '../hocs/defaultPage';
 
 const LoggedInDiv = () => (
 	<div>
-		Logged in!
+		<p>Logged in! <Link href='/rate'>Rate movie list</Link></p>
     </div>
 )
 
@@ -19,10 +19,12 @@ const NotLoggedInDiv = () => (
 const Index = ({ isAuthenticated }) => (
 	<div>
 		<p>Hello world!</p>
-		{isAuthenticated && <LoggedInDiv />}
-		{!isAuthenticated && <NotLoggedInDiv />}
+		<LoggedInDiv />
+		<NotLoggedInDiv />
 	</div>
 )
+/*		{isAuthenticated && <LoggedInDiv />}
+		{!isAuthenticated && <NotLoggedInDiv />}*/
 
 export default defaultPage(Index);
 
