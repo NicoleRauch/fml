@@ -12,7 +12,7 @@ const AddList = () => (
 
 		<form action="/rate">
 			<p>Upload your movies:</p>
-			<textarea name="movieList">One movie per line...</textarea>
+			<textarea name="movieList" defaultValue="One movie per line..."></textarea>
 			<br />
 			<input type="submit" value="Upload" />
 		</form>
