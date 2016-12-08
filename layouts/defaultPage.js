@@ -1,5 +1,5 @@
 import React from 'react';
-import Head from 'next/head';
+import Header from '../components/header';
 
 export default Page => class DefaultPage extends React.Component {
 
@@ -10,10 +10,7 @@ export default Page => class DefaultPage extends React.Component {
 	render() {
 		return (
 			<div>
-				<Head>
-					<meta name='viewport' content='width=device-width, initial-scale=1' />
-					<title>FavoriteMovieList</title>
-				</Head>
+				<Header />
 				<Page />
 			</div>
 		)
