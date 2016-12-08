@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import securePage from '../hocs/securePage.js';
+import securePage from '../layouts/securePage.js';
 
 const Rate = () => (
 	<div>

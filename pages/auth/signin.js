@@ -1,6 +1,6 @@
 import React from 'react';
 
-import defaultPage from '../../hocs/defaultPage';
+import defaultPage from '../../layouts/defaultPage';
 
 const LogIn = () => (
 	<div>

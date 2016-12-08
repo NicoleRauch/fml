@@ -1,6 +1,6 @@
 import React from 'react';
 
-import securePage from '../hocs/securePage.js';
+import securePage from '../layouts/securePage.js';
 
 const AddList = () => (
 	<div>

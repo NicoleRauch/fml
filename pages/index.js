@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 
-import defaultPage from '../hocs/defaultPage';
+import defaultPage from '../layouts/defaultPage';
 
 const LoggedInDiv = () => (
 	<div>
