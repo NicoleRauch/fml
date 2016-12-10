@@ -9,8 +9,13 @@
   "dependencies": {
     "next": "^1.2.2"
   },
+  "devDependencies": {
+    "babel-jest": "^17.0.2",
+    "jest": "^17.0.3"
+  },
   "scripts": {
-    "test": "exit 0;",
+    "test": "jest",
+    "test:watch": "npm test -- --watch",
     "dev": "next",
     "start": "next build && next start"
   }
