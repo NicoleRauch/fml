@@ -1,3 +1,4 @@
+set -e;
 file=index.html
 minimumsize=1000
 

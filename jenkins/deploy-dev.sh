@@ -1,3 +1,4 @@
+set -e;
 echo "
 webapp:
     image: $DOCKER_REGISTRY/$JOB_NAME:latest
