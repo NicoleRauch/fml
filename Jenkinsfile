@@ -35,7 +35,7 @@ try {
 		sh './jenkins/deploy-beta.sh'
 		updateGitlabCommitStatus name: 'jenkins', state: 'success'
 	}
-} catch (cerr) {
+} catch (err) {
 	updateGitlabCommitStatus name: 'jenkins', state: 'failed'
 	throw err
 }
