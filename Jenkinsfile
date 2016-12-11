@@ -14,7 +14,7 @@ try {
 	stage('Internal Tests') {
 		sh './jenkins/tests-internal.sh'
 		archiveArtifacts artifacts: 'coverage/**'
-		step([$class: 'CloverPublisher', cloverReportFileName: 'coverage/clover.xml'])
+		step([$class: 'CloverPublisher', cloverReportDir: 'coverage/', cloverReportFileName: 'clover.xml'])
 	}
 
 	stage('Docker Image') {
