@@ -14,6 +14,7 @@ try {
 	stage('Internal Tests') {
 		sh './jenkins/tests-internal.sh'
 		archiveArtifacts artifacts: 'coverage/**'
+		step([$class: 'CloverPublisher', cloverReportFileName: 'coverage/clover.xml'])
 	}
 
 	stage('Docker Image') {
