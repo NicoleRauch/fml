@@ -13,6 +13,7 @@ try {
 
 	stage('Internal Tests') {
 		sh './jenkins/tests-internal.sh'
+		archiveArtifacts artifacts: 'coverage/**'
 	}
 
 	stage('Docker Image') {
