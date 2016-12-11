@@ -14,7 +14,13 @@ try {
 	stage('Internal Tests') {
 		sh './jenkins/tests-internal.sh'
 		archiveArtifacts artifacts: 'coverage/**'
-		step([$class: 'CloverPublisher', cloverReportDir: 'coverage/', cloverReportFileName: 'clover.xml'])
+//		step([$class: 'CloverPublisher', cloverReportDir: 'coverage/', cloverReportFileName: 'clover.xml'])
+/*
+java.lang.NullPointerException
+	at hudson.plugins.clover.CloverPublisher.processCloverXml(CloverPublisher.java:250)
+	at hudson.plugins.clover.CloverPublisher.performImpl(CloverPublisher.java:202)
+	at hudson.plugins.clover.CloverPublisher.perform(CloverPublisher.java:167)
+*/
 	}
 
 	stage('Docker Image') {
