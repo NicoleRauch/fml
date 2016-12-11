@@ -8,6 +8,7 @@ export default () => (
 			<title>FavoriteMovieList</title>
 			<meta name="theme-color" content="#303F9F" />
 			<link href="/static/icon/fml_48dp_1x.png" rel="icon" type="image/png" />
+			<link rel="manifest" href="/static/manifest.webmanifest" />
 		</Head>
 	</header>
 )
