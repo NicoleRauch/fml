@@ -19,7 +19,7 @@ export default class InputTextfield extends React.Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
-		this.props.onSubmit(event);
+		this.props.onSubmit(this.movieList);
 	}
 	
 	render() {

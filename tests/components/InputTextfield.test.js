@@ -15,7 +15,9 @@ describe("InputTextfield", () => {
 
 	it('should call props.onSubmit and preventDefault in event of a submit', () => {
 		const props = {
-			onSubmit: jest.fn()
+			onSubmit: jest.fn((value) => {
+				expect(value).toEqual({movies:"One movie per line..."});
+			})
 		}
 		const submitEvent = {
 			preventDefault: jest.fn()
