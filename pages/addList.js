@@ -1,23 +1,37 @@
 import React from 'react';
 
-import securePage from '../layouts/securePage.js';
+import AddListInputTextfield from '../containers/AddListInputTextfield';
 
-const AddList = () => (
-	<div>
-		<form action="/rate">
-			<p>Upload your KODI mediathek xml:</p>
-			<input type="file" name="file" />
-			<input type="submit" value="Upload" />
-		</form>
+import { Provider } from 'react-redux';
+import { initStore } from '../store';
+import reducer from '../reducers';
 
-		<form action="/rate">
-			<p>Upload your movies:</p>
-			<textarea name="movieList" defaultValue="One movie per line..."></textarea>
-			<br />
-			<input type="submit" value="Upload" />
-		</form>
-	</div>
-)
+export default class AddList extends React.Component {
+	static getInitialProps ({ req }) {
+		const isServer = !!req;
+		const store = initStore(reducer, undefined, isServer);
+		return { initialState: store.getState(), isServer }
+	}
 
-export default securePage(AddList);
+	constructor (props) {
+		super(props)
+		this.store = initStore(reducer, props.initialState, props.isServer)
+	}
+
+	render() {
+		return (
+			<div>
+				<form action="/rate">
+					<p>Upload your KODI mediathek xml:</p>
+					<input type="file" name="file" />
+					<input type="submit" value="Upload" />
+				</form>
+
+				<Provider store={this.store}>
+					<AddListInputTextfield />
+				</Provider>
+			</div>
+	   )
+	}
+}
 
