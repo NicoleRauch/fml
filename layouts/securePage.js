@@ -4,7 +4,6 @@ import defaultPage from './defaultPage.js';
 
 const securePageHoc = Page => class SecurePage extends React.Component {
 	static getInitialProps(ctx) {
-		console.log("SecurePage.getInitialProps: ", ctx);
         return Page.getInitialProps(ctx)
     }
 
