@@ -9,7 +9,7 @@ const securePageHoc = Page => class SecurePage extends React.Component {
 			// TODO: Implement real NotAuthorized-Page
 			return <div><p>Not authorized!</p></div>
 		}
-		return <Page />
+		return <Page {...this.props}/>
 	};
 };
 
