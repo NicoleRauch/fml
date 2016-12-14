@@ -4,7 +4,9 @@ import Header from '../components/header';
 export default Page => class DefaultPage extends React.Component {
 
 	static getInitialProps(ctx) {
-        return Page.getInitialProps(ctx)
+		if(Page.getInitialProps) {
+        	return Page.getInitialProps(ctx)
+		}
     }
 
 	render() {
