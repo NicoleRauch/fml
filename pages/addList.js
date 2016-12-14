@@ -1,12 +1,13 @@
 import React from 'react';
 
+import securePage from '../layouts/securePage';
 import AddListInputTextfield from '../containers/AddListInputTextfield';
 
 import { Provider } from 'react-redux';
 import { initStore } from '../store';
 import reducer from '../reducers';
 
-export default class AddList extends React.Component {
+class AddList extends React.Component {
 	static getInitialProps ({ req }) {
 		const isServer = !!req;
 		const store = initStore(reducer, undefined, isServer);
@@ -34,4 +35,6 @@ export default class AddList extends React.Component {
 	   )
 	}
 }
+
+export default securePage(AddList);
 
