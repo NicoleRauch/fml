@@ -7,10 +7,9 @@ import FilteredMovieList from '../containers/FilteredMovieList';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducer from '../reducers';
+import { initStore } from '../store';
 
-const store = createStore(reducer);
-
-const LoggedInDiv = () => (
+const LoggedInDiv = ({ store }) => (
 	<Provider store={store}>
 		<div>
 			<p>Logged in! <Link href='/rate'>Rate movie lists</Link></p>
@@ -31,15 +30,30 @@ const NotLoggedInDiv = () => (
     </div>
 )
 
-const Index = ({ isAuthenticated }) => (
-	<div>
-		<LoggedInDiv />
-		<hr />
-		<NotLoggedInDiv />
-	</div>
-)
+class Index extends React.Component {
+	static getInitialProps ({ req }) {
+		const isServer = !!req;
+		const store = initStore(reducer, undefined, isServer);
+		return { initialState: store.getState(), isServer }
+	}
+
+	constructor (props) {
+		super(props)
+		this.store = initStore(reducer, props.initialState, props.isServer)
+	}
+
 /*		{isAuthenticated && <LoggedInDiv />}
 		{!isAuthenticated && <NotLoggedInDiv />}*/
+	render() {
+		return (
+			<div>
+				<LoggedInDiv store={this.store}/>
+				<hr />
+				<NotLoggedInDiv />
+			</div>
+		)
+	}
+}
 
 export default defaultPage(Index);
 
