@@ -16,7 +16,7 @@ describe("FilteredMovieList", () => {
 			</Provider>
 		);
 
-		expect(wrapper.find('ol').children().length).toBe(3);
+		expect(wrapper.find('ol').children().length).toBe(0);
 	});
 });
 
