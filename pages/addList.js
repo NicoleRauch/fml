@@ -29,7 +29,7 @@ class AddList extends React.Component {
 				</form>
 
 				<Provider store={this.store}>
-					<AddListInputTextfield />
+					<AddListInputTextfield url={this.props.url}/>
 				</Provider>
 			</div>
 	   )
