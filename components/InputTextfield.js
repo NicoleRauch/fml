@@ -4,8 +4,7 @@ export default class InputTextfield extends React.Component {
 	
 	constructor(props) {
 		super(props);
-		this.props = props;
-		this.movieList = {
+		this.state = {
 			movies: 'One movie per line...'
 		};
 
@@ -14,12 +13,12 @@ export default class InputTextfield extends React.Component {
 	}
 
 	handleChange(event) {
-		this.movieList.movies = event.target.value;
+		this.setState({movies: event.target.value});
 	}
 
 	handleSubmit(event) {
 		event.preventDefault();
-		this.props.onSubmit(this.movieList);
+		this.props.onSubmit(this.state);
 	}
 	
 	render() {
@@ -28,7 +27,7 @@ export default class InputTextfield extends React.Component {
 				<p>Upload your movies:</p>
 				<textarea
 					name="movieList"
-					value={this.movieList.movies}
+					value={this.state.movies}
 					onChange={this.handleChange}>
 				</textarea>
 				<br />
