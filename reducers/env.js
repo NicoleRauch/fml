@@ -1,4 +1,4 @@
-export default (state,action) => {
+export default () => {
 	return {
 		nodeEnv: process.env.NODE_ENV,
 		version: process.env.npm_package_version,

@@ -26,7 +26,7 @@
     "minifyWorker": "babili --minified --compact=\"true\" --no-comments static/worker -d static/minifiedWorker",
     "test": "jest --coverage --config .jestrc",
     "test:watch": "jest --watch --config .jestrc",
-    "dev": "next",
+    "dev": "NODE_ENV=dev next",
     "start": "next build && next start"
   }
 }
