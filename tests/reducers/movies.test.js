@@ -1,17 +1,17 @@
-import reducer from '../reducers/'
+import reducer from '../../reducers/movies'
 
 describe('movies reducer', () => {
 	it('should return the initial state', () => {
 		expect(
 			reducer(undefined, {})
-		).toEqual({"movies": []})
+		).toEqual([])
 	})
 
 	it('should add movies line-by-line', () => {
-		const stateBefore = {movies: [{
+		const stateBefore = [{
 			id: -662285847,
 			title: 'Mission Impossible'
-		}]};
+		}];
 		const action = {
 			type: 'ADD_MOVIES_LINE-BY-LINE',
 			value: {
@@ -21,8 +21,7 @@ describe('movies reducer', () => {
 
 		expect(
 			reducer(stateBefore, action)
-		).toEqual({
-			movies:[{
+		).toEqual([{
 			id: -662285847,
 			title: 'Mission Impossible'
 			}, {
@@ -35,7 +34,7 @@ describe('movies reducer', () => {
 				id: -1801708797,
 				title: "Herr der Ringe"
 			}]
-		});
+		);
 	})
 })
 
