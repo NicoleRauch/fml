@@ -8,6 +8,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 				type: 'ADD_MOVIECOLLECTION_WITH_MOVIES_LINE-BY-LINE',
 				movieCollection
 			});
+			dispatch({
+				type: 'ADD_MOVIES_LINE-BY-LINE',
+				value: {
+					movies: movieCollection.movies
+				}
+			});
 			ownProps.url.pushTo('/rate');
 		}
 	}
