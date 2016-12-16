@@ -2,19 +2,36 @@ import React from 'react';
 import Link from 'next/link';
 
 import securePage from '../layouts/securePage.js';
+import MovieCollectionList from '../containers/MovieCollectionList'
 
-const Rate = () => (
-	<div>
-		<p><Link href='/'>Back</Link></p>
-		<p>List of all Movie Lists</p>
-		<ul>
-			<li>Hugo (author) [100%]</li>
-			<li>Datengrab (author) [50% => 20 left]</li>
-			<li>Filme (author) [10% => 100 left]</li>
-		</ul>
-		<p><Link href='/addList'>Add a new list</Link></p>
-	</div>
-)
+import { Provider } from 'react-redux';
+import { initStore } from '../store';
+
+class Rate extends React.Component {
+	static getInitialProps ({ req }) {
+		const isServer = !!req;
+		const store = initStore(undefined, isServer);
+		return { initialState: store.getState(), isServer }
+	}
+
+	constructor (props) {
+		super(props)
+		this.store = initStore(props.initialState, props.isServer)
+	}
+
+	render() {
+		return (
+			<div>
+				<p><Link href='/'>Back</Link></p>
+				<p>List of all Movie Collections:</p>
+				<Provider store={this.store}>
+					<MovieCollectionList />
+				</Provider>
+				<p><Link href='/addList'>Add a new list</Link></p>
+			</div>
+		)
+	}
+}
 
 export default securePage(Rate);
 
