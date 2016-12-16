@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import InputTextfield from '../components/InputTextfield'
+import InputTextfield from '../components/CreateListWithTextareaForm'
 
 const mapStateToProps = (state) => { return {}; };
 const mapDispatchToProps = (dispatch, ownProps) => {
