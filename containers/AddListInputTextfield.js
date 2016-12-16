@@ -1,21 +1,20 @@
 import { connect } from 'react-redux'
 import InputTextfield from '../components/CreateListWithTextareaForm'
 
-const mapStateToProps = (state) => { return {}; };
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
-		onSubmit: (value) => {
+		onSubmit: (movieCollection) => {
 			dispatch({
-				type: 'ADD_MOVIES_LINE-BY-LINE',
-				value
+				type: 'ADD_MOVIECOLLECTION_WITH_MOVIES_LINE-BY-LINE',
+				movieCollection
 			});
-			ownProps.url.pushTo('/');
+			ownProps.url.pushTo('/rate');
 		}
 	}
 }
 
 export default connect(
-	mapStateToProps,
+	null,
 	mapDispatchToProps
 )(InputTextfield)
 
