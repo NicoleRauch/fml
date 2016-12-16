@@ -5,8 +5,6 @@ import defaultPage from '../layouts/defaultPage';
 import FilteredMovieList from '../containers/FilteredMovieList';
 
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import reducer from '../reducers';
 import { initStore } from '../store';
 
 const LoggedInDiv = ({ store }) => (
@@ -33,13 +31,13 @@ const NotLoggedInDiv = () => (
 class Index extends React.Component {
 	static getInitialProps ({ req }) {
 		const isServer = !!req;
-		const store = initStore(reducer, undefined, isServer);
+		const store = initStore(undefined, isServer);
 		return { initialState: store.getState(), isServer }
 	}
 
 	constructor (props) {
 		super(props)
-		this.store = initStore(reducer, props.initialState, props.isServer)
+		this.store = initStore(props.initialState, props.isServer)
 	}
 
 /*		{isAuthenticated && <LoggedInDiv />}

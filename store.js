@@ -1,6 +1,7 @@
 import { createStore } from 'redux';
+import reducer from './reducers';
 
-export const initStore = (reducer, initialState, isServer) => {
+export const initStore = (initialState, isServer) => {
 	if (isServer && typeof window === 'undefined') {
 		return createStore(reducer, initialState);
 	} else {
