@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import movies from './movies';
-import lists from './lists';
+import movieCollections from './movieCollections.js';
 
 const fmlApp = combineReducers({
 	movies,
-	lists
+	movieCollections
 });
 
 export default fmlApp;

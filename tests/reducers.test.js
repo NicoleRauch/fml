@@ -6,7 +6,7 @@ describe('movies reducer', () => {
 			reducer(undefined, {})
 		).toEqual({
 			"movies": [],
-			"lists": []
+			"movieCollections": []
 		})
 	})
 })
