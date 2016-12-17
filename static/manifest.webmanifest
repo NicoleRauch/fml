@@ -6,7 +6,7 @@
   "display": "standalone",
   "start_url": "/",
   "short_name": "FML",
-  "theme_color": "#303F9F",
+  "theme_color": "#03A9F4",
   "description": "Compare your movies against each other to get a prioritized list.",
   "orientation": "any",
   "background_color": "transparent",
