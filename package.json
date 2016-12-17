@@ -2,7 +2,7 @@
   "name": "favoritemovielist",
   "private": true,
   "version": "0.1.0",
-  "description": "",
+  "description": "Compare your movies against each other to get a prioritized list.",
   "main": "index.js",
   "author": "Christoph Haefner",
   "license": "MIT",

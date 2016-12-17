@@ -7,7 +7,7 @@
   "start_url": "/",
   "short_name": "FML",
   "theme_color": "#303F9F",
-  "description": "Your favorite Movies in a list.",
+  "description": "Compare your movies against each other to get a prioritized list.",
   "orientation": "any",
   "background_color": "transparent",
   "related_applications": [],
