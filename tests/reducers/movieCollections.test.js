@@ -1,11 +1,6 @@
 import reducer from '../../reducers/movieCollections'
 
 describe('movieCollections reducer', () => {
-	it('should return the initial state', () => {
-		expect(
-			reducer(undefined, {})
-		).toEqual([])
-	})
 
 	it('should create list and add movies line-by-line', () => {
 		const stateBefore = [{
