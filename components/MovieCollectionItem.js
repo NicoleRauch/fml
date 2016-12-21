@@ -7,7 +7,7 @@ export default ({ id, name }) => (
 	 * Datengrab (author) [50% => 20 left]
 	 */
 	<li>
-		{name} <Link href={'/movieCollection?id='+id}>Show</Link>
+		{name} <Link href={'/movieCollection?id='+id}>Show</Link> <Link href={'/rate?id='+id}>Rate</Link>
 	</li>
 )
 
