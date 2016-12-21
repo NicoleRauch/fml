@@ -1,6 +1,7 @@
 import React from 'react';
 
 import securePage from '../layouts/securePage';
+import MovieList from '../containers/MovieCollectionSpecificMovieList';
 
 import { Provider } from 'react-redux';
 import { initStore } from '../store';
@@ -21,7 +22,10 @@ class MovieCollection extends React.Component {
 		let { url: { query: { id } } } = this.props;
 		return (
 			<div>
-				<p>Will soon display the content of movie collection {id}</p>
+				<p>All movies of collection {id}:</p>
+				<Provider store={this.store}>
+					<MovieList collectionId={id} />
+				</Provider>
 			</div>
 	   )
 	}
