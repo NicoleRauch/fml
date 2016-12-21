@@ -10,7 +10,7 @@ import { initStore } from '../store';
 const LoggedInDiv = ({ store }) => (
 	<Provider store={store}>
 		<div>
-			<p>Logged in! <Link href='/rate'>Rate movie collections</Link></p>
+			<p>Logged in! <Link href='/movieCollections'>Rate movie collections</Link></p>
 			<div>
 				<p>Filters: Genre (Action, Drama, etc.), ...</p>
 			</div>

@@ -7,7 +7,7 @@ import MovieCollectionList from '../containers/MovieCollectionList'
 import { Provider } from 'react-redux';
 import { initStore } from '../store';
 
-class Rate extends React.Component {
+class MovieCollections extends React.Component {
 	static getInitialProps ({ req }) {
 		const isServer = !!req;
 		const store = initStore(undefined, isServer);
@@ -33,5 +33,5 @@ class Rate extends React.Component {
 	}
 }
 
-export default securePage(Rate);
+export default securePage(MovieCollections);
 
