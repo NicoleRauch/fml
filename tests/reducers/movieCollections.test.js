@@ -34,13 +34,13 @@ describe('movieCollections reducer', () => {
 			id: 1695575963,
 			name: 'Awesome Vol1',
 			movies: [{
-				id: -1997372447,
+				id: 1997372447,
 				title: "Matrix"
 			}, {
-				id: -202820711,
+				id: 202820711,
 				title: "Star Wars"
 			}, {
-				id: -1801708797,
+				id: 1801708797,
 				title: "Herr der Ringe"
 			}]
 		}]
