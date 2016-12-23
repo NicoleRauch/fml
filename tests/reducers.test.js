@@ -17,7 +17,10 @@ describe('movies reducer', () => {
 					] // movies
 				} // movieCollection
 			],	// movieCollections
-			rate: {}
+			rate: {
+				processes: [],
+				movieList: []
+			}
 		} // stateAfter
 	} // params
 	) // it
