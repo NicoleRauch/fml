@@ -32,5 +32,17 @@ describe("CreateListWithTextarea", () => {
 		expect(props.onSubmit).toHaveBeenCalled();
 		expect(submitEvent.preventDefault).toHaveBeenCalled();
 	});
+
+	it('should update state on user input', () => {
+		const wrapper = shallow(<Component />)
+		const changedName = "UberAwesomeList";
+		const changedMovies = "Movie1\nMovie2\nMovie3";
+
+		wrapper.find('[type="text"]').simulate('change', {target: {value: changedName}});
+		wrapper.find('textarea').simulate('change', {target: {value: changedMovies}});
+
+		expect(wraper.state('name')).toBe(changedName);
+		expect(wraper.state('movies')).toBe(changedMovies);
+	});
 });
 
