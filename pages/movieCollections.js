@@ -27,7 +27,7 @@ class MovieCollections extends React.Component {
 				<Provider store={this.store}>
 					<MovieCollectionList />
 				</Provider>
-				<p><Link href='/addList'>Add a new movie collection</Link></p>
+				<p><Link href='/addMovieCollection'>Add a new movie collection</Link></p>
 			</div>
 		)
 	}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import Component from '../../components/CreateListWithTextareaForm.js'
+import Component from '../../components/CreateMovieCollectionWithTextareaForm'
 
 describe("CreateListWithTextarea", () => {
 	it('should render self and subcomponents', () => {

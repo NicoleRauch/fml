@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import InputTextfield from '../components/CreateListWithTextareaForm'
+import InputTextfield from '../components/CreateMovieCollectionWithTextareaForm'
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import securePage from '../layouts/securePage';
-import AddListInputTextfield from '../containers/AddListInputTextfield';
+import WithInputTextfield from '../containers/AddMovieCollectionWithInputTextfield.js';
 
 import { Provider } from 'react-redux';
 import { initStore } from '../store';
@@ -28,7 +28,7 @@ class AddList extends React.Component {
 				</form>
 
 				<Provider store={this.store}>
-					<AddListInputTextfield url={this.props.url}/>
+					<WithInputTextfield url={this.props.url}/>
 				</Provider>
 			</div>
 	   )
