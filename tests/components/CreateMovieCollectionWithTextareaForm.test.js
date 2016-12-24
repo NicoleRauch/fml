@@ -41,8 +41,8 @@ describe("CreateListWithTextarea", () => {
 		wrapper.find('[type="text"]').simulate('change', {target: {value: changedName}});
 		wrapper.find('textarea').simulate('change', {target: {value: changedMovies}});
 
-		expect(wraper.state('name')).toBe(changedName);
-		expect(wraper.state('movies')).toBe(changedMovies);
+		expect(wrapper.state('name')).toBe(changedName);
+		expect(wrapper.state('movies')).toBe(changedMovies);
 	});
 });
 
