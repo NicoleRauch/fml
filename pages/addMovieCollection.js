@@ -1,7 +1,8 @@
 import React from 'react';
 
 import securePage from '../layouts/securePage';
-import WithInputTextfield from '../containers/AddMovieCollectionWithInputTextfield.js';
+import WithInputTextfield from '../containers/AddMovieCollectionWithInputTextfield';
+import WithInputFile from '../containers/AddMovieCollectionWithFile';
 
 import { Provider } from 'react-redux';
 import { initStore } from '../store';
@@ -21,12 +22,9 @@ class AddList extends React.Component {
 	render() {
 		return (
 			<div>
-				<form action="/rate">
-					<p>Upload your KODI mediathek xml:</p>
-					<input type="file" name="file" />
-					<input type="submit" value="Upload" />
-				</form>
-
+				<Provider store={this.store}>
+					<WithInputFile url={this.props.url}/>
+				</Provider>
 				<Provider store={this.store}>
 					<WithInputTextfield url={this.props.url}/>
 				</Provider>
