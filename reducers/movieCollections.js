@@ -1,3 +1,5 @@
+import { ADD_MOVIECOLLECTION_WITH_MOVIES_LINE_BY_LINE } from '../actions/'
+
 export default (
 	state = [
 		{
@@ -10,7 +12,7 @@ export default (
 	],
 	action) => {
 	switch(action.type) {
-		case 'ADD_MOVIECOLLECTION_WITH_MOVIES_LINE-BY-LINE':
+		case ADD_MOVIECOLLECTION_WITH_MOVIES_LINE_BY_LINE:
 			return state.concat({
 				id: hashCode(action.movieCollection.name),
 				name: action.movieCollection.name,

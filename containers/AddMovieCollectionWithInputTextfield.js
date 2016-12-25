@@ -1,13 +1,11 @@
 import { connect } from 'react-redux'
 import InputTextfield from '../components/CreateMovieCollectionWithTextareaForm'
+import { addMovieCollectionWithMoviesLineByLine } from '../actions/'
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
 		onSubmit: (movieCollection) => {
-			dispatch({
-				type: 'ADD_MOVIECOLLECTION_WITH_MOVIES_LINE-BY-LINE',
-				movieCollection
-			});
+			dispatch(addMovieCollectionWithMoviesLineByLine(movieCollection));
 			ownProps.url.pushTo('/movieCollections');
 		}
 	}
