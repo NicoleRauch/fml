@@ -2,6 +2,8 @@ import reducerTest from '../helper/reducerTest'
 import reducer from '../../reducers/movieCollections'
 const it = reducerTest.bind(null, reducer);
 
+import { ADD_MOVIECOLLECTION_WITH_MOVIES_LINE_BY_LINE } from '../../actions/'
+
 describe('movieCollections reducer', () => {
 
 	it('should create list and add movies line-by-line', {
@@ -16,7 +18,7 @@ describe('movieCollections reducer', () => {
 		}],
 		action: 
 		{
-			type: 'ADD_MOVIECOLLECTION_WITH_MOVIES_LINE-BY-LINE',
+			type: ADD_MOVIECOLLECTION_WITH_MOVIES_LINE_BY_LINE,
 			movieCollection: {
 				name: 'Awesome Vol1',
 				movies: 'Matrix\nStar Wars\nHerr der Ringe'
