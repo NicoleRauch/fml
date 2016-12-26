@@ -10,6 +10,7 @@ describe('movieCollections reducer', () => {
 		stateBefore:
 		[{ 
 			id: 2603186,
+			isLoading: false,
 			name: 'Test',
 			movies: [{
 				id: -662285847,
@@ -27,6 +28,7 @@ describe('movieCollections reducer', () => {
 		stateAfter:
 		[{
 			id: 2603186,
+			isLoading: false,
 			name: 'Test',
 			movies: [{
 				id: -662285847,
@@ -34,6 +36,7 @@ describe('movieCollections reducer', () => {
 			}]
 		}, {
 			id: 1695575963,
+			isLoading: false,
 			name: 'Awesome Vol1',
 			movies: [{
 				id: 1997372447,
