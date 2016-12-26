@@ -1,4 +1,7 @@
-import { ADD_MOVIECOLLECTION_WITH_MOVIES_LINE_BY_LINE } from '../actions/'
+import {
+	ADD_MOVIECOLLECTION_WITH_MOVIES_LINE_BY_LINE,
+	ADD_MOVIECOLLECTION_BY_FILE_START,
+	ADD_MOVIECOLLECTION_BY_FILE_FINISHED } from '../actions/'
 
 export default (
 	state = [
@@ -15,6 +18,18 @@ export default (
 	switch(action.type) {
 		case ADD_MOVIECOLLECTION_WITH_MOVIES_LINE_BY_LINE:
 			return state.concat(movieCollection(undefined, action));
+		case ADD_MOVIECOLLECTION_BY_FILE_START:
+			return state.concat(movieCollection(undefined, action));
+		case ADD_MOVIECOLLECTION_BY_FILE_FINISHED:
+			const specificMovieCollection = state.find((element) => {
+				return element.name == action.movieCollection.name;
+			});
+			return state.map((element) => {
+				if(element.id != specificMovieCollection.id) {
+					return element;
+				}
+				return movieCollection(specificMovieCollection, action);
+			});
 		default:
 			return state;
 	}
@@ -35,6 +50,17 @@ const movieCollection = (state = {
 						movies: action.movieCollection.movies
 					}
 				})
+			});
+		case ADD_MOVIECOLLECTION_BY_FILE_START:
+			return Object.assign({}, state, {
+				id: hashCode(action.movieCollection.name),
+				name: action.movieCollection.name,
+				isLoading: true
+			});
+		case ADD_MOVIECOLLECTION_BY_FILE_FINISHED:
+			return Object.assign({}, state, {
+				isLoading: false,
+				movies: action.movieCollection.movies
 			});
 		default:
 			return state;
