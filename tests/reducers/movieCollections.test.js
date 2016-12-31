@@ -1,6 +1,7 @@
 import reducerTest from '../helper/reducerTest'
 import reducer from '../../reducers/movieCollections'
 const it = reducerTest.bind(null, reducer);
+import * as Actions from "../../actions/"
 
 import {
 	ADD_MOVIECOLLECTION_WITH_MOVIES_LINE_BY_LINE,
@@ -20,14 +21,10 @@ describe('movieCollections reducer', () => {
 				title: 'Mission Impossible'
 			}]
 		}],
-		action: 
-		{
-			type: ADD_MOVIECOLLECTION_WITH_MOVIES_LINE_BY_LINE,
-			movieCollection: {
-				name: 'Awesome Vol1',
-				movies: 'Matrix\nStar Wars\nHerr der Ringe'
-			}
-		},
+		action: Actions.addMovieCollectionWithMoviesLineByLine({
+			name: 'Awesome Vol1',
+			movies: 'Matrix\nStar Wars\nHerr der Ringe'
+		}),
 		stateAfter:
 		[{
 			id: 2603186,
@@ -56,13 +53,9 @@ describe('movieCollections reducer', () => {
 
 	it('should create loading movie collection and empty movies', {
 		stateBefore: [],
-		action:
-		{
-			type: ADD_MOVIECOLLECTION_BY_FILE_START,
-			movieCollection: {
-				name: 'Awesome Vol1'
-			}
-		},
+		action: Actions.addMovieCollectionByFileStart({
+			name: 'Awesome Vol1'
+		}),
 		stateAfter:
 		[{
 			id: 1695575963,

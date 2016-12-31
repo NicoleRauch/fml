@@ -1,7 +1,9 @@
 import {
+	ADD_MOVIE,
 	ADD_MOVIECOLLECTION_WITH_MOVIES_LINE_BY_LINE,
 	ADD_MOVIECOLLECTION_BY_FILE_START,
 	ADD_MOVIECOLLECTION_BY_FILE_FINISHED } from '../actions/'
+import * as Actions from '../actions/'
 
 export default (
 	state = [
@@ -42,7 +44,7 @@ const movieCollection = (state = {
 	switch(action.type) {
 		case ADD_MOVIECOLLECTION_WITH_MOVIES_LINE_BY_LINE:
 			return Object.assign({}, state, {
-				id: hashCode(action.movieCollection.name),
+				id: action.movieCollection.id,
 				name: action.movieCollection.name,
 				movies: movies(undefined, {
 					type: 'ADD_MOVIES_LINE-BY-LINE',
@@ -53,7 +55,7 @@ const movieCollection = (state = {
 			});
 		case ADD_MOVIECOLLECTION_BY_FILE_START:
 			return Object.assign({}, state, {
-				id: hashCode(action.movieCollection.name),
+				id: action.movieCollection.id,
 				name: action.movieCollection.name,
 				isLoading: true
 			});
@@ -72,10 +74,9 @@ const movies = (state = [], action) => {
 		case 'ADD_MOVIES_LINE-BY-LINE':
 			return state.concat(action.value.movies
 				.split("\n")
-				.map((movieName) => movie(undefined, {
-					type: 'ADD_MOVIE',
+				.map((movieName) => movie(undefined, Actions.addMovie({
 					title: movieName
-				})));
+				}))));
 		default:
 			return state;
 	}
@@ -83,24 +84,10 @@ const movies = (state = [], action) => {
 
 const movie = (state = {}, action) => {
 	switch(action.type) {
-		case 'ADD_MOVIE':
-			return {
-				id: hashCode(action.title),
-				title: action.title
-			};
+		case ADD_MOVIE:
+			return action.movie;
 		default:
 			return state;
 	}
-};
-
-const hashCode = (titleString) => {
-	let hash = 0, length = titleString.length;
-	if (length == 0) return hash;
-	for (let i = 0; i < length; i++) {
-		let character = titleString.charCodeAt(i);
-		hash = ((hash<<5)-hash)+character;
-		hash = hash & hash; // Convert to 32bit integer
-	}
-	return Math.abs(hash);
 };
 
