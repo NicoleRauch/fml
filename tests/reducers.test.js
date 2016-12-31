@@ -7,7 +7,6 @@ describe('movies reducer', () => {
 		stateBefore: undefined,
 		action: {},
 		stateAfter: {
-			"movies": [],
 			"movieCollections": [
 				{
 					id:673655561,
