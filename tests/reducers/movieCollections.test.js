@@ -10,6 +10,7 @@ describe('movieCollections reducer', () => {
 		{"2603186": { 
 			isLoading: false,
 			name: 'Test',
+			sort: 'title',
 			movies: {
 				"662285847": {
 					title: 'Mission Impossible'
@@ -24,6 +25,7 @@ describe('movieCollections reducer', () => {
 		{"2603186": { 
 			isLoading: false,
 			name: 'Test',
+			sort: 'title',
 			movies: {
 				"662285847": {
 					title: 'Mission Impossible'
@@ -33,6 +35,7 @@ describe('movieCollections reducer', () => {
 		"1695575963": {
 			isLoading: false,
 			name: 'Awesome Vol1',
+			sort: 'title',
 			movies: {
 				"1997372447": {
 					title: "Matrix"
@@ -56,6 +59,7 @@ describe('movieCollections reducer', () => {
 		{"1695575963": {
 			isLoading: true,
 			name: 'Awesome Vol1',
+			sort: 'title',
 			movies: {}
 		}}
 	});
@@ -65,6 +69,7 @@ describe('movieCollections reducer', () => {
 		{"1695575963": {
 			isLoading: true,
 			name: 'Awesome Vol1',
+			sort: 'title',
 			movies: {}
 		}},
 		action: Actions.updateMovieCollectionByFileFinished({
@@ -79,6 +84,7 @@ describe('movieCollections reducer', () => {
 		{"1695575963": {
 			isLoading: false,
 			name: 'Awesome Vol1',
+			sort: 'title',
 			movies: {
 				"1997372447": {
 					title: "Matrix"
