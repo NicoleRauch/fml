@@ -26,7 +26,14 @@ const getSortedMovies = (state, collectionId) => {
 
 const sortMovies = (movies, sortAttribute) => {
 	return movies.sort((a, b) => {
-		return (a[sortAttribute]<b[sortAttribute]?-1:(a[sortAttribute]>b[sortAttribute]?1:0))
+		const first = removeMovieSpecificPrefixes(a[sortAttribute]).toLowerCase();
+		const second = removeMovieSpecificPrefixes(b[sortAttribute]).toLowerCase();
+		return (first<second?-1:(first>second?1:0))
 	});
+};
+
+const removeMovieSpecificPrefixes = (string) => {
+	let noPrefix = string.replace(/^(Der|Die|Das|The)/, '');
+	return noPrefix.trim();
 };
 
