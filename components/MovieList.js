@@ -3,10 +3,11 @@ import Movie from './MovieItem'
 
 const MovieList = ({movies}) => (
 	<ol>
-		{movies.map(movie =>
+		{Object.keys(movies).map(movieId =>
 			<Movie
-				key={movie.id}
-				{...movie}
+				key={movieId}
+				id={movieId}
+				{...movies[movieId]}
 			/>
 		)}
 	</ol>
