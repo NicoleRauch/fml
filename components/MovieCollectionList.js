@@ -6,6 +6,7 @@ const MovieCollectionList = ({movieCollections}) => (
 		{Object.keys(movieCollections).map(movieCollectionId =>
 			<MovieCollection
 				key={movieCollectionId}
+				id={movieCollectionId}
 				{...movieCollections[movieCollectionId]}
 			/>
 		)}

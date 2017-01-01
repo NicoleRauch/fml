@@ -16,7 +16,12 @@ describe("MovieCollectionList", () => {
 			</Provider>
 		);
 
-		expect(wrapper.find('ol').children().length).toBe(1);
+		const ol = wrapper.find('ol');
+		expect(ol.children().length).toBe(1);
+		const links = ol.find('li').find('a');
+		links.forEach((link) => {
+			expect(link.prop('href')).toContain("id=673655561");
+		});
 	});
 });
 
