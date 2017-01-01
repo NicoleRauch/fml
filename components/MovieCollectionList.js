@@ -3,10 +3,10 @@ import MovieCollection from './MovieCollectionItem'
 
 const MovieCollectionList = ({movieCollections}) => (
 	<ol>
-		{movieCollections.map(movieCollection =>
+		{Object.keys(movieCollections).map(movieCollectionId =>
 			<MovieCollection
-				key={movieCollection.id}
-				{...movieCollection}
+				key={movieCollectionId}
+				{...movieCollections[movieCollectionId]}
 			/>
 		)}
 	</ol>

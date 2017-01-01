@@ -2,9 +2,7 @@ import { connect } from 'react-redux'
 import MovieList from '../components/MovieList'
 
 const getMovieCollectionMoviesById = (state, collectionId) => {
-	const movieCollection = state.movieCollections.find((movieCollection) => {
-		return movieCollection.id == collectionId;
-	});
+	const movieCollection = state.movieCollections[collectionId]
 	return movieCollection ? movieCollection.movies : [];
 };
 
