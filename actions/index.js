@@ -13,6 +13,19 @@ export const addMovieCollectionWithMoviesLineByLine = (movieCollection) => {
 	}
 };
 
+export const createMovieCollectionByFile = (movieCollection) => {
+	console.log(movieCollection);
+	return (dispatch) => {
+		dispatch(addMovieCollectionByFileStart(movieCollection));
+		// start WebWorker and Dispatch updateMovieCollectionByFileFinished if returns with result
+		const worker = new Worker("/static/parseVideoDbXml.es6.js");
+		worker.postMessage(movieCollection.content);
+		worker.onmessage = (e) => {
+			console.log(e.data);
+		};
+	};
+};
+
 export const addMovieCollectionByFileStart = (movieCollection) => {
 	return {
 		type: ADD_MOVIECOLLECTION_BY_FILE_START,

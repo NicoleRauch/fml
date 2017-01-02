@@ -18,7 +18,6 @@ export default class InputFile extends React.Component {
 		const reader = new FileReader();
 		reader.onload = (e) => {
 			this.setState({content: e.target.result});
-			console.log(this.state);
 			this.submitButton.disabled = false;
 		};
 		reader.readAsText(file);
