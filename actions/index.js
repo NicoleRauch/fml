@@ -22,12 +22,15 @@ export const createMovieCollectionByFile = (movieCollection) => {
 		const worker = new Worker("/static/minifiedWorker/parseVideoDbXml.js");
 		worker.postMessage(movieCollection.file);
 		worker.onmessage = (e) => {
+			if(e.data.event && e.data.event === "finished") {
+				dispatch(addMovieCollectionByFileFinished({
+					name: movieCollection.name,
+				}));
+				return;
+			}
 			dispatch(updateMovieCollectionByFile({
 				name: movieCollection.name,
 				movies: [e.data]
-			}));
-			dispatch(addMovieCollectionByFileFinished({
-				name: movieCollection.name,
 			}));
 		};
 	};
@@ -52,8 +55,7 @@ export const updateMovieCollectionByFile = (movieCollection) => {
 export const addMovieCollectionByFileFinished = (movieCollection) => {
 	return {
 		type: ADD_MOVIECOLLECTION_BY_FILE_FINISHED,
-		id: hashCode(movieCollection.name),
-		movieCollection
+		id: hashCode(movieCollection.name)
 	}
 };
 

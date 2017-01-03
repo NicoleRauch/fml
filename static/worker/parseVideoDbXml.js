@@ -42,6 +42,9 @@ onmessage = (e) => {
 			});
 		}
 	}
+	SAXEventHandler.prototype.endDocument = function() {
+		postMessage({event: "finished"});
+	}
 
 	const parser = new SAXDriver();
 	const eventHandler = new SAXEventHandler();
