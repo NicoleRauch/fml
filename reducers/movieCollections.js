@@ -2,7 +2,8 @@ import {
 	ADD_MOVIE,
 	ADD_MOVIECOLLECTION_WITH_MOVIES_LINE_BY_LINE,
 	ADD_MOVIECOLLECTION_BY_FILE_START,
-	UPDATE_MOVIECOLLECTION_BY_FILE_FINISHED } from '../actions/'
+	UPDATE_MOVIECOLLECTION_BY_FILE,
+	ADD_MOVIECOLLECTION_BY_FILE_FINISHED } from '../actions/'
 import * as Actions from '../actions/'
 
 export default (
@@ -21,7 +22,8 @@ export default (
 	switch(action.type) {
 		case ADD_MOVIECOLLECTION_WITH_MOVIES_LINE_BY_LINE:
 		case ADD_MOVIECOLLECTION_BY_FILE_START:
-		case UPDATE_MOVIECOLLECTION_BY_FILE_FINISHED:
+		case UPDATE_MOVIECOLLECTION_BY_FILE:
+		case ADD_MOVIECOLLECTION_BY_FILE_FINISHED:
 			return Object.assign({}, state, {
 				[action.id]: movieCollection(state[action.id], action)
 			})
@@ -49,13 +51,17 @@ const movieCollection = (state = {
 				name: action.movieCollection.name,
 				isLoading: true
 			});
-		case UPDATE_MOVIECOLLECTION_BY_FILE_FINISHED:
+		case UPDATE_MOVIECOLLECTION_BY_FILE:
 			return Object.assign({}, state, {
-				isLoading: false,
-				movies: movies(undefined, {
+				isLoading: true,
+				movies: Object.assign({}, state.movies, movies(undefined, {
 					type: 'ADD_MOVIES_VIA_OBJECTS',
 					movies: action.movieCollection.movies
-				})
+				}))
+			});
+		case ADD_MOVIECOLLECTION_BY_FILE_FINISHED:
+			return Object.assign({}, state, {
+				isLoading: false
 			});
 		default:
 			return state;

@@ -72,7 +72,7 @@ describe('movieCollections reducer', () => {
 			sort: 'title',
 			movies: {}
 		}},
-		action: Actions.updateMovieCollectionByFileFinished({
+		action: Actions.updateMovieCollectionByFile({
 			name: 'Awesome Vol1',
 			movies: [{
 				title: "Matrix"
@@ -82,7 +82,7 @@ describe('movieCollections reducer', () => {
 		}),
 		stateAfter:
 		{"1695575963": {
-			isLoading: false,
+			isLoading: true,
 			name: 'Awesome Vol1',
 			sort: 'title',
 			movies: {
@@ -93,6 +93,26 @@ describe('movieCollections reducer', () => {
 					title: "Herr der Ringe"
 				}
 			}
+		}}
+	});
+
+	it('should update movie collection to status finished', {
+		stateBefore:
+		{"1695575963": {
+			isLoading: true,
+			name: 'Awesome Vol1',
+			sort: 'title',
+			movies: {}
+		}},
+		action: Actions.addMovieCollectionByFileFinished({
+			name: 'Awesome Vol1',
+		}),
+		stateAfter:
+		{"1695575963": {
+			isLoading: false,
+			name: 'Awesome Vol1',
+			sort: 'title',
+			movies: {}
 		}}
 	});
 })
