@@ -16,12 +16,14 @@
   "devDependencies": {
     "babel-jest": "^17.0.2",
     "babel-preset-react": "^6.16.0",
+    "babili": "0.0.9",
     "deep-freeze": "0.0.1",
     "enzyme": "^2.6.0",
     "jest": "^17.0.3",
     "react-addons-test-utils": "^15.4.1"
   },
   "scripts": {
+    "minifyWorker": "babili --minified --compact=\"true\" --no-comments static/worker -d static/minifiedWorker",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "dev": "next",
