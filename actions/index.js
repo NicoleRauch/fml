@@ -19,7 +19,7 @@ export const createMovieCollectionByFile = (movieCollection) => {
 		dispatch(addMovieCollectionByFileStart(movieCollection));
 		// start WebWorker and Dispatch updateMovieCollectionByFileFinished if returns with result
 		const worker = new Worker("/static/parseVideoDbXml.es6.js");
-		worker.postMessage(movieCollection.content);
+		worker.postMessage(movieCollection.file);
 		worker.onmessage = (e) => {
 			console.log(e.data);
 		};

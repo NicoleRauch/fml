@@ -14,13 +14,8 @@ export default class InputFile extends React.Component {
 	}
 
 	handleFileSelect(event) {
-		const file = event.target.files[0];
-		const reader = new FileReader();
-		reader.onload = (e) => {
-			this.setState({content: e.target.result});
-			this.submitButton.disabled = false;
-		};
-		reader.readAsText(file);
+		this.setState({file: event.target.files[0]});
+		this.submitButton.disabled = false;
 	}
 
 	handleTextinputChange(event) {
