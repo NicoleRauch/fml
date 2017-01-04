@@ -1,18 +1,28 @@
-set -e;
-file=index.html
-minimumsize=1000
+FILE=index.html
+MINIMUMSIZE=1000
+BACKOFF=15
 
-echo "wget fml.dev.christophhaefner.de -O $file";
-wget fml.dev.christophhaefner.de -O $file;
+for i in {1..3}
+do
+	echo "wget fml.dev.christophhaefner.de -O $FILE";
+	wget fml.dev.christophhaefner.de -O $FILE;
+	if [ "$?" == "0" ]; then
+		break
+	else
+		BACKOFF=$(($BACKOFF * 2))
+		echo "backoff: $BACKOFF"
+		sleep $BACKOFF
+	fi
+done
 
-actualsize=$(wc -c <"$file")
-echo "actualisize: '$actualsize'";
+ACTUALSIZE=$(wc -c <"$FILE")
+echo "actualisize: '$ACTUALSIZE'";
 
-if [ $actualsize -ge $minimumsize ]; then
-	echo "file is greater than $minimumsize";
+if [ $ACTUALSIZE -ge $MINIMUMSIZE ]; then
+	echo "file is greater than $MINIMUMSIZE";
 	exit 0;
 else
-	echo "file is smaller than $minimumsize";
+	echo "file is smaller than $MINIMUMSIZE";
 	exit 1;
 fi
 
