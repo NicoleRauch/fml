@@ -6,7 +6,7 @@ for i in {1..3}
 do
 	echo "wget fml.dev.christophhaefner.de -O $FILE";
 	wget fml.dev.christophhaefner.de -O $FILE;
-	if [ "$?" == "0" ]; then
+	if [ $? -eq 0 ]; then
 		break
 	else
 		BACKOFF=$(($BACKOFF * 2))
