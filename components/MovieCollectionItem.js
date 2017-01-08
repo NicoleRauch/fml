@@ -1,15 +1,13 @@
 import React from 'react'
 import Link from 'next/link';
 
-export default ({ id, name, isLoading }) => (
+export default ({ id, name, isLoading, moviesQuantity }) => (
 	/*
 	 * Hugo (author) [100%]
 	 * Datengrab (author) [50% => 20 left]
-	 * if it's still loading from file, display spinner like
-	 *  (http://spiffygif.com/gif?color=000000&length=2&radius=3&width=1 -> 14x14px)
 	 */
 	<li>
-		{name} { isLoading && <LoadingMovieCollection />} { !isLoading && <AvailableMovieCollection id={id} /> }
+		{name} { isLoading && <LoadingMovieCollection moviesQuantity={moviesQuantity}/>} { !isLoading && <AvailableMovieCollection id={id} /> }
 	</li>
 )
 
@@ -19,6 +17,9 @@ const AvailableMovieCollection = ({ id }) => (
 	</span>
 )
 
-const LoadingMovieCollection = () => (
-	<img src="/static/loadingSpinner14x14.gif" alt="Loading Spinner" /> 
+const LoadingMovieCollection = ({ moviesQuantity='?' }) => (
+	<span>
+		<img src="/static/loadingSpinner14x14.gif" alt="Loading Spinner" /> ({moviesQuantity})
+	</span>
 )
+
