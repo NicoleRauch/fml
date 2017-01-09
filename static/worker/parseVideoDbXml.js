@@ -38,7 +38,8 @@ onmessage = (e) => {
 				fanart: movie.fanart,
 				poster: movie.poster,
 				runtime: movie.runtime,
-				mpaa: movie.mpaa
+				mpaa: movie.mpaa,
+				watched: (Number.parseInt(movie.playcount) > 0)
 			});
 		}
 	}
