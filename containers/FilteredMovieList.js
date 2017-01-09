@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import MovieList from '../components/MovieList'
 
 const mapStateToProps = (state) => ({
-	movies: state.rate.movieList
+	movies: state.rate.movies
 });
 const mapDispatchToProps = ({})
 

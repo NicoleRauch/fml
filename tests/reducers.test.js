@@ -19,7 +19,7 @@ describe('movies reducer', () => {
 			}, // movieCollections
 			rate: {
 				processes: [],
-				movieList: [],
+				movies: [],
 				sort: "title"
 			}
 		} // stateAfter

@@ -1,7 +1,7 @@
 export default (state =
 {
 	processes: [],
-	movieList: [],
+	movies: [],
 	sort: "title"
 }, action) => {
 	switch(action.type) {
