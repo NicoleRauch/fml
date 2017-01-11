@@ -1,7 +1,11 @@
 export default (state =
 {
 	processes: {},
-	movies: {},
+	movies: {
+		'1931101123': {
+			title: 'Pulp Fiction'
+		}
+	},
 	sort: "title"
 }, action) => {
 	switch(action.type) {

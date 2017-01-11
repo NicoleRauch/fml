@@ -19,7 +19,9 @@ describe('movies reducer', () => {
 			}, // movieCollections
 			rate: {
 				processes: {},
-				movies: {},
+				movies: {
+					'1931101123': { title: 'Pulp Fiction' }
+				},
 				sort: "title"
 			}
 		} // stateAfter
