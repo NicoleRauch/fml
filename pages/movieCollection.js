@@ -1,12 +1,12 @@
 import React from 'react';
 
 import securePage from '../layouts/securePage';
-import MovieList from '../containers/MovieCollectionSpecificMovieList';
+import MovieCollectionApp from '../apps/MovieCollection.js';
 
 import { Provider } from 'react-redux';
 import { initStore } from '../store';
 
-class MovieCollection extends React.Component {
+class MovieCollectionPage extends React.Component {
 	static getInitialProps ({ req }) {
 		const isServer = !!req;
 		const store = initStore(undefined, isServer);
@@ -21,15 +21,12 @@ class MovieCollection extends React.Component {
 	render() {
 		let { url: { query: { id } } } = this.props;
 		return (
-			<div>
-				<p>All movies of collection {id}:</p>
-				<Provider store={this.store}>
-					<MovieList collectionId={id} />
-				</Provider>
-			</div>
+			<Provider store={this.store}>
+				<MovieCollectionApp collectionId={id} />
+			</Provider>
 	   )
 	}
 }
 
-export default securePage(MovieCollection);
+export default securePage(MovieCollectionPage);
 
