@@ -2,23 +2,14 @@ import React from 'react';
 import Link from 'next/link';
 
 import defaultPage from '../layouts/defaultPage';
-import FilteredMovieList from '../containers/FilteredMovieList';
+import FrontPageApp from '../apps/FrontPage';
 
 import { Provider } from 'react-redux';
 import { initStore } from '../store';
 
 const LoggedInDiv = ({ store }) => (
 	<Provider store={store}>
-		<div>
-			<p>Logged in! <Link href='/movieCollections'>Rate movie collections</Link></p>
-			<div>
-				<p>Filters: Genre (Action, Drama, etc.), ...</p>
-			</div>
-			<div>
-				<p>Your Movies:</p>
-				<FilteredMovieList />
-			</div>
-		</div>
+		<FrontPageApp />
 	</Provider>
 )
 
