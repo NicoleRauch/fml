@@ -1,5 +1,5 @@
 import React from 'react'
-import FormFile from '../components/MovieCollectionFileForm'
+import FormFile from '../components/MovieCollectionFormFile'
 import * as Actions from '../actions';
 
 export default class CreateMovieCollectionWithInputTextarea extends React.Component {
