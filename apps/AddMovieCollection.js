@@ -11,7 +11,6 @@ export class AddMovieCollectionApp extends React.Component {
 	}
 
 	render() {
-		console.log("[app/AddMovieCollection]", this.props);
 		return (
 			<div>
 				<WithInputFile {...this.props}/>
