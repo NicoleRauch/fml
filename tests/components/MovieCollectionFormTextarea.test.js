@@ -10,7 +10,8 @@ describe("CreateListWithTextarea", () => {
 		}
 		const wrapper = shallow(<Component {...props} />)
 
-		expect(wrapper.find('textarea').prop('value')).toBe("One movie per line...");
+		expect(wrapper.find('textarea').prop('value')).toBeTruthy();
+		expect(wrapper.find('input').last().prop('type')).toBe("submit");
 	});
 
 	it('should call props.onSubmit and preventDefault in event of a submit', () => {
