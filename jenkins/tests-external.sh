@@ -1,8 +1,10 @@
 FILE=index.html
 MINIMUMSIZE=1000
 BACKOFF=15
+i=0
+max=5
 
-for i in {1..3}
+while [ $i -lt $max ]
 do
 	echo "wget fml.dev.christophhaefner.de -O $FILE";
 	wget fml.dev.christophhaefner.de -O $FILE;
@@ -13,6 +15,7 @@ do
 		echo "backoff: $BACKOFF"
 		sleep $BACKOFF
 	fi
+	i=$(($i + 1))
 done
 
 ACTUALSIZE=$(wc -c <"$FILE")
