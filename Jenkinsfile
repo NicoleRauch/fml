@@ -33,7 +33,6 @@ java.lang.NullPointerException
 	}
 
 	stage('External Tests') {
-		sleep 30
 		sh './jenkins/tests-external.sh'
 	}
 
