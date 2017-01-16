@@ -77,3 +77,10 @@ const hashCode = (titleString) => {
 	return Math.abs(hash);
 };
 
+export const SAVE_COMPARISON_RESULT = 'SAVE_COMPARISON_RESULT';
+export const saveComparisonResult = (comparisonResult) => {
+	return {
+		type: SAVE_COMPARISON_RESULT,
+		payload: comparisonResult
+	};
+};
