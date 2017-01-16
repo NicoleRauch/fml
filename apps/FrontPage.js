@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { connect } from "react-redux";
 
-import SortedMovieList from '../components/SortedMovieList.js';
+import RatedMovieList from '../components/RatedMovieList.js';
 
 export class FrontPageApp extends React.Component {
 	constructor (props) {
@@ -10,7 +10,6 @@ export class FrontPageApp extends React.Component {
 	}
 
 	render() {
-		const collection = this.props.rate;
 		return (
 			<div>
 				<p>Logged in! <Link href='/movieCollections'>Rate movie collections</Link></p>
@@ -19,6 +18,7 @@ export class FrontPageApp extends React.Component {
 				</div>
 				<div>
 					<p>Your Movies:</p>
+					<RatedMovieList {...this.props} />
 				</div>
 			</div>
 	   )
