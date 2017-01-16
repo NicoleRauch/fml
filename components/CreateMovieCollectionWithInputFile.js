@@ -7,11 +7,10 @@ export default class CreateMovieCollectionWithInputTextarea extends React.Compon
 		super(props)
 		this.url = props.url;
 		this.dispatch = props.dispatch;
+		this.submit = this.submit.bind(this);
 	}
 
 	submit(movieCollection) {
-		this.dispatch(Actions.addMovieCollectionWithMoviesLineByLine(movieCollection));
-		this.url.pushTo('/movieCollections');
 		this.dispatch(Actions.createMovieCollectionByFile(movieCollection));
 		this.url.pushTo('/movieCollections');
 	}
