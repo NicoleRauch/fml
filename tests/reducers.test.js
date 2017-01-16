@@ -19,9 +19,11 @@ describe('movies reducer', () => {
 			}, // movieCollections
 			rate: {
 				processes: {},
-				movies: {
-					'1931101123': { title: 'Pulp Fiction' }
-				},
+				results: [{
+					movieToCompare: '1931101123',
+					movieFromRatedList: undefined,
+					won: true
+				}],
 				sort: "title"
 			}
 		} // stateAfter

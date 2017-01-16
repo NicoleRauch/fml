@@ -19,7 +19,6 @@ export class FrontPageApp extends React.Component {
 				</div>
 				<div>
 					<p>Your Movies:</p>
-					<SortedMovieList collection={collection}/>
 				</div>
 			</div>
 	   )

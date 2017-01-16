@@ -1,11 +1,11 @@
 export default (state =
 {
 	processes: {},
-	movies: {
-		'1931101123': {
-			title: 'Pulp Fiction'
-		}
-	},
+	results: [{
+		movieToCompare: '1931101123',
+		movieFromRatedList: undefined,
+		won: true
+	}],
 	sort: "title"
 }, action) => {
 	switch(action.type) {
