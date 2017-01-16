@@ -15,7 +15,6 @@ export const addMovieCollectionWithMoviesLineByLine = (movieCollection) => {
 };
 
 export const createMovieCollectionByFile = (movieCollection) => {
-	console.log(movieCollection);
 	return (dispatch) => {
 		dispatch(addMovieCollectionByFileStart(movieCollection));
 		// start WebWorker and Dispatch updateMovieCollectionByFileFinished if returns with result
