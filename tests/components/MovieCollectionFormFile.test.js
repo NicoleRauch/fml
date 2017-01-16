@@ -1,25 +1,25 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 
-import Component from '../../components/MovieCollectionFormTextarea'
+import Component from '../../components/MovieCollectionFormFile'
 
-describe("MovieCollectionFormTextarea", () => {
+describe("MovieCollectionFormFile", () => {
 	it('should render self and subcomponents', () => {
 		const props = {
 			onSubmit: () => {}
 		}
 		const wrapper = shallow(<Component {...props} />)
 
-		expect(wrapper.find('textarea').prop('value')).toBeTruthy();
+		expect(wrapper.find('[type="file"]')).toBeTruthy();
 		expect(wrapper.find('[type="text"]')).toBeTruthy();
+		expect(wrapper.find('[type="submit"]')).toBeTruthy();
 	});
 
 	it('should call props.onSubmit and preventDefault in event of a submit', () => {
 		const props = {
 			onSubmit: jest.fn((value) => {
 				expect(value).toEqual({
-					name: "Awesome Vol1",
-					movies: "One movie per line..."
+					name: "Awesome Vol1"
 				});
 			})
 		}
@@ -35,15 +35,19 @@ describe("MovieCollectionFormTextarea", () => {
 	});
 
 	it('should update state on user input', () => {
-		const wrapper = shallow(<Component />)
+		const wrapper = mount(<Component />)
 		const changedName = "UberAwesomeList";
-		const changedMovies = "Movie1\nMovie2\nMovie3";
+		const selectedFile = {name: "videodb.xml", size: 42};
 
-		wrapper.find('[type="text"]').simulate('change', {target: {value: changedName}});
-		wrapper.find('textarea').simulate('change', {target: {value: changedMovies}});
+		wrapper.find('[type="text"]').simulate('change',
+			{target: {value: changedName}}
+		);
+		wrapper.find('[type="file"]').simulate('change',
+			{target: {files: [selectedFile]}}
+		);
 
 		expect(wrapper.state('name')).toBe(changedName);
-		expect(wrapper.state('movies')).toBe(changedMovies);
+		expect(wrapper.state('file')).toBe(selectedFile);
 	});
 });
 
