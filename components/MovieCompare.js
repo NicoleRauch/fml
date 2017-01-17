@@ -1,18 +1,31 @@
 import React from 'react'
-import Movie from './MovieItem'
+import MovieCompareForm from '../components/MovieCompareForm'
+import * as Actions from '../actions/';
 
-const MovieCompare = ({onSubmit, movieFromList, movieFromCollection}) => (
-		<div>
-			<p>Is movie</p>
-			<p>{movieFromList.title}</p>
-			<p>better then</p>
-			<p>{movieFromCollection.title}</p>
-			<p>
-				<button type="button" name="yes" onClick={onSubmit}>Yes</button>
-				<button type="button" name="no" onClick={onSubmit}>No</button>
-			</p>
-		</div>
-)
+export default class MovieCompare extends React.Component {
+	constructor (props) {
+		super(props)
+		this.url = props.url;
+		this.dispatch = props.dispatch;
+		this.submit = this.submit.bind(this);
+		this.movieFromList = { id:'1931101123', title:'Pulp Fiction' };
+		this.movieFromCollection = { id: '1997372447', title:'Matrix' };
+	}
 
-export default MovieCompare
+	submit(evt) {
+		console.log(evt.target.name);
+		this.dispatch(Actions.saveComparisonResult({
+			movieFromList: this.movieFromList.id,
+			movieFromCollection: this.movieFromCollection.id
+		}));
+	}
+
+	render() {
+		return (
+			<MovieCompareForm onSubmit={this.submit}
+				movieFromList={this.movieFromList}
+				movieFromCollection={this.movieFromCollection} />
+		);
+	}
+};
 

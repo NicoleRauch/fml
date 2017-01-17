@@ -1,7 +1,7 @@
 import React from 'react';
 
 import securePage from '../layouts/securePage';
-import MovieCompare from '../containers/MovieCompare';
+import RateApp from '../apps/Rate';
 
 import { Provider } from 'react-redux';
 import { initStore } from '../store';
@@ -21,12 +21,9 @@ class Rate extends React.Component {
 	render() {
 		let { url: { query: { id } } } = this.props;
 		return (
-			<div>
-				<p>Rate movies from movie collection {id}:</p>
-				<Provider store={this.store}>
-					<MovieCompare collectionId={id} />
-				</Provider>
-			</div>
+			<Provider store={this.store}>
+				<RateApp collectionId={id} />
+			</Provider>
 	   )
 	}
 }
