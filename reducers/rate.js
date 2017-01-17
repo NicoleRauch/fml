@@ -7,8 +7,7 @@ export default (state =
 		movieFromCollection: '1931101123', // Pulp Fiction
 		movieFromPersonalList: undefined,
 		won: true
-	}],
-	sort: "title"
+	}]
 }, action) => {
 	switch(action.type) {
 		case SAVE_COMPARISON_RESULT:

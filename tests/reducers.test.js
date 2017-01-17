@@ -23,8 +23,7 @@ describe('movies reducer', () => {
 					movieFromCollection: '1931101123', // Pulp Fiction
 					movieFromPersonalList: undefined,
 					won: true
-				}],
-				sort: "title"
+				}]
 			}
 		} // stateAfter
 	} // params
