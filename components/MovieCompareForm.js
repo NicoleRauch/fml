@@ -1,16 +1,21 @@
 import React from 'react'
 import Movie from './MovieItem'
 
-const MovieCompare = ({onSubmit, movieFromList, movieFromCollection}) => (
+const MovieCompare = ({onSubmit, movieFromCollection, movieFromPersonalList}) => (
 		<div>
-			<p>Is movie</p>
-			<p>{movieFromList.title}</p>
-			<p>better then</p>
-			<p>{movieFromCollection.title}</p>
-			<p>
-				<button type="button" name="yes" onClick={onSubmit}>Yes</button>
-				<button type="button" name="no" onClick={onSubmit}>No</button>
-			</p>
+			<button type="button"
+				name={movieFromPersonalList.id}
+				onClick={onSubmit}
+			>
+				{movieFromPersonalList.title}
+			</button>
+			<p>vs</p>
+			<button type="button"
+				name={movieFromCollection.id}
+				onClick={onSubmit}
+			>
+				{movieFromCollection.title}
+			</button>
 		</div>
 )
 

@@ -6,8 +6,8 @@ import MovieCompareForm from '../../components/MovieCompareForm'
 describe("MovieCompareForm", () => {
 	it('should render self', () => {
 		const props = {
-			movieFromList: {title: "Matrix"},
-			movieFromCollection: {title: "Herr der Ringe"}
+			movieFromCollection: { id: '1997372447', title:'Matrix' },
+			movieFromPersonalList: { id:'1931101123', title:'Pulp Fiction' }
 		}
 		const wrapper = shallow(<MovieCompareForm {...props} />)
 

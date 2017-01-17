@@ -4,8 +4,8 @@ export default (state =
 {
 	processes: {},
 	results: [{
-		movieToCompare: '1931101123',
-		movieFromRatedList: undefined,
+		movieFromCollection: '1931101123', // Pulp Fiction
+		movieFromPersonalList: undefined,
 		won: true
 	}],
 	sort: "title"

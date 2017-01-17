@@ -8,23 +8,23 @@ export default class MovieCompare extends React.Component {
 		this.url = props.url;
 		this.dispatch = props.dispatch;
 		this.submit = this.submit.bind(this);
-		this.movieFromList = { id:'1931101123', title:'Pulp Fiction' };
 		this.movieFromCollection = { id: '1997372447', title:'Matrix' };
+		this.movieFromPersonalList = { id:'1931101123', title:'Pulp Fiction' };
 	}
 
 	submit(evt) {
-		console.log(evt.target.name);
 		this.dispatch(Actions.saveComparisonResult({
-			movieFromList: this.movieFromList.id,
-			movieFromCollection: this.movieFromCollection.id
+			movieFromCollection: this.movieFromCollection.id,
+			movieFromPersonalList: this.movieFromPersonalList.id,
+			won: (evt.target.name === this.movieFromCollection.id)
 		}));
 	}
 
 	render() {
 		return (
 			<MovieCompareForm onSubmit={this.submit}
-				movieFromList={this.movieFromList}
-				movieFromCollection={this.movieFromCollection} />
+				movieFromCollection={this.movieFromCollection}
+				movieFromPersonalList={this.movieFromPersonalList} />
 		);
 	}
 };
