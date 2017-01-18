@@ -13,11 +13,11 @@ export default class RatedMovieList extends React.Component {
 
 const getMovieArray = ({ rate: { results }, movieCollections }) => {
 	const firstMovie = results.find((result) => {
-		if(typeof result.movieFromRatedList === "undefined") {
+		if(typeof result.movieFromPersonalList === "undefined") {
 			return result;
 		}
 	});
-	const movieIds = [firstMovie.movieToCompare];
+	const movieIds = [firstMovie.movieFromCollection];
 	return enrich(movieIds, movieCollections);
 };
 
