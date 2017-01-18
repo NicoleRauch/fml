@@ -1,5 +1,6 @@
 import React from 'react'
 import MovieList from './MovieList'
+import resultsToMovieArray from '../lib/rateResultsToMovieArray'
 
 export default class PersonalMovieList extends React.Component {
 
@@ -12,12 +13,7 @@ export default class PersonalMovieList extends React.Component {
 };
 
 const getMovieArray = ({ rate: { results }, movieCollections }) => {
-	const firstMovie = results.find((result) => {
-		if(typeof result.movieFromPersonalList === "undefined") {
-			return result;
-		}
-	});
-	const movieIds = [firstMovie.movieFromCollection];
+	const movieIds = resultsToMovieArray(results);
 	return enrich(movieIds, movieCollections);
 };
 
