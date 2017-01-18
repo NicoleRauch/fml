@@ -1,9 +1,9 @@
 import React from 'react'
 import { mount } from 'enzyme'
 
-import RatedMovieList from '../../components/RatedMovieList'
+import PersonalMovieList from '../../components/PersonalMovieList'
 
-describe("RatedMovieList", () => {
+describe("PersonalMovieList", () => {
 	it('should render self and subcomponents', () => {
 		const props = {
 			movieCollections: {
@@ -23,7 +23,7 @@ describe("RatedMovieList", () => {
 				}]
 			}
 		};
-		const wrapper = mount(<RatedMovieList {...props} />)
+		const wrapper = mount(<PersonalMovieList {...props} />)
 
 		const movies = wrapper.find('ol').children();
 		expect(movies.length).toBe(1);
@@ -32,4 +32,3 @@ describe("RatedMovieList", () => {
 		});
 	});
 });
-

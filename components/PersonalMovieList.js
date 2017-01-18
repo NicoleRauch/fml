@@ -1,7 +1,7 @@
 import React from 'react'
 import MovieList from './MovieList'
 
-export default class RatedMovieList extends React.Component {
+export default class PersonalMovieList extends React.Component {
 
 	render() {
 		const movies = getMovieArray(this.props);
@@ -31,4 +31,3 @@ const enrich = (movieIds, movieCollections) => {
 		return movie;
 	});
 };
-
