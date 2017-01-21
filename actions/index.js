@@ -84,3 +84,11 @@ export const saveComparisonResult = (comparisonResult) => {
 		payload: comparisonResult
 	};
 };
+
+export const UPDATE_COMPARISON_PROCESS = 'UPDATE_COMPARISON_PROCESS';
+export const updateComparisonProcess = (currentState) => {
+	return {
+		type: UPDATE_COMPARISON_PROCESS,
+		payload: currentState
+	};
+};

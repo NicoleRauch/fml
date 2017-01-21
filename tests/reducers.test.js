@@ -18,7 +18,7 @@ describe('movies reducer', () => {
 				} // movieCollection
 			}, // movieCollections
 			rate: {
-				processes: {},
+				process: {},
 				results: [{
 					movieFromCollection: '1931101123', // Pulp Fiction
 					movieFromPersonalList: undefined,
