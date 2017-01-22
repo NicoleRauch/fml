@@ -10,6 +10,10 @@ export default class MovieCompare extends React.Component {
 		this.dispatch = props.dispatch;
 		this.submit = this.submit.bind(this);
 		this.nextMovies = chooseNextMoviesToCompare();
+		this.nextMovies = {
+			movieFromCollection: { id: '1997372447', title:'Matrix' },
+			movieFromPersonalList: { id:'1931101123', title:'Pulp Fiction' }
+		};
 	}
 
 	submit(evt) {
