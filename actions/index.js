@@ -66,6 +66,23 @@ export const addMovie = (movie) => {
 	}
 };
 
+export const START_COMPARISON_PROCESS = 'START_COMPARISON_PROCESS';
+export const startComparisonProcess = (movieCollection) => {
+	return {
+		type: START_COMPARISON_PROCESS,
+		id: hashCode(movieCollection.name),
+		payload: movieCollection
+	};
+};
+export const UPDATE_COMPARISON_PROCESS = 'UPDATE_COMPARISON_PROCESS';
+export const updateComparisonProcess = (id, result) => {
+	return {
+		type: UPDATE_COMPARISON_PROCESS,
+		id: id,
+		payload: result
+	};
+};
+
 const hashCode = (titleString) => {
 	let hash = 0, length = titleString.length;
 	if (length == 0) return hash;
@@ -75,20 +92,4 @@ const hashCode = (titleString) => {
 		hash = hash & hash; // Convert to 32bit integer
 	}
 	return Math.abs(hash);
-};
-
-export const SAVE_COMPARISON_RESULT = 'SAVE_COMPARISON_RESULT';
-export const saveComparisonResult = (comparisonResult) => {
-	return {
-		type: SAVE_COMPARISON_RESULT,
-		payload: comparisonResult
-	};
-};
-
-export const UPDATE_COMPARISON_PROCESS = 'UPDATE_COMPARISON_PROCESS';
-export const updateComparisonProcess = (currentState) => {
-	return {
-		type: UPDATE_COMPARISON_PROCESS,
-		payload: currentState
-	};
 };

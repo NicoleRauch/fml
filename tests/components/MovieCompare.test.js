@@ -4,7 +4,7 @@ import { mount } from 'enzyme'
 import Component from '../../components/MovieCompare'
 
 describe("MovieCompare", () => {
-	it('should dispatch action', () => {
+	it.skip('should dispatch action', () => {
 		const props = {
 			dispatch: jest.fn(),
 		}
