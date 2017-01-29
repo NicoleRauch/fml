@@ -1,11 +1,12 @@
 import {
 	START_COMPARISON_PROCESS,
-	UPDATE_COMPARISON_PROCESS } from '../actions/'
-import toMovieArray from '../lib/rateResultsToMovieArray'
+	UPDATE_COMPARISON_PROCESS,
+	FINISH_COMPARISON_PROCESS } from '../actions/'
 
 export default (state =
 {
 	process: {},
+	personalMovieList: ['1931101123'],
 	results: [{
 		movieFromCollection: '1931101123', // Pulp Fiction
 		movieFromPersonalList: undefined,
@@ -19,10 +20,33 @@ export default (state =
 				process: {
 					[action.id]: process(
 						state.process[action.id],
-						Object.assign({}, action, {results: state.results})
+						Object.assign({}, action,
+							{personalMovieList: state.personalMovieList}
+						)
 					)
 				}
 			})
+		case FINISH_COMPARISON_PROCESS:
+			return Object.assign({}, state, {
+				process: {
+					[action.id]: process(
+						state.process[action.id],
+						action
+					)
+				},
+				personalMovieList: personalMovieList(state.personalMovieList, action)
+			})
+		default:
+			return state;
+	}
+};
+
+const personalMovieList = (state = [], action) => {
+	switch(action.type) {
+		case FINISH_COMPARISON_PROCESS:
+			const result = state.concat();
+			result.splice(action.payload.result, 0, action.payload.movieFromCollection);
+			return result;
 		default:
 			return state;
 	}
@@ -34,18 +58,23 @@ const process = (state =
 }, action) => {
 	switch(action.type) {
 		case START_COMPARISON_PROCESS:
-			const movieArray = toMovieArray(action.results);
-			const R = (movieArray.length)-1;
+			const R = (action.personalMovieList.length)-1;
 			return Object.assign({}, state, {
 				L: 0,
 				R: R,
-				m: Math.floor((R)/2)
+				m: Math.floor((R)/2),
+				movieFromCollection: action.payload.movieFromCollection
 			});
 		case UPDATE_COMPARISON_PROCESS:
-			return iterateBinarySearch(
-						state.L, state.R, state.m,
-						action.payload.comparisonWonByMovieFromCollection
-					);
+			return Object.assign({}, iterateBinarySearch(
+					state.L, state.R, state.m,
+					action.payload.comparisonWonByMovieFromCollection
+				), {
+					movieFromCollection: state.movieFromCollection
+				}
+			);
+		case FINISH_COMPARISON_PROCESS:
+			return;
 		default:
 			return state;
 	}

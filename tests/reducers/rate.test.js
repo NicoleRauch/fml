@@ -7,48 +7,42 @@ describe('rate reducer', () => {
 	it('should start the comparison process', {
 		stateBefore: {
 			process: {},
-			results: [{
-				movieFromCollection: '1931101123',
-				movieFromPersonalList: undefined,
-				comparisonWonByMovieFromCollection: true
-			}]
+			personalMovieList: ['1931101123']
 		},
-		action: Actions.startComparisonProcess({
-			name:'Hugo Blurays',
-			isLoading: false,
-			sort: "title",
-			movies: {
-				'1931101123':{title:'Pulp Fiction'},
-				'6902420':{title:'The Walk - Eine triumphale wahre Geschichte (2015)'},
-				'12675280':{title:'96 Hours - Taken 2 (2012)'}
-			}
+		action: Actions.startComparisonProcess({movieCollection: {
+				name:'Hugo Blurays',
+				isLoading: false,
+				sort: "title",
+				movies: {
+					'1931101123':{title:'Pulp Fiction'},
+					'6902420':{title:'The Walk - Eine triumphale wahre Geschichte (2015)'},
+					'12675280':{title:'96 Hours - Taken 2 (2012)'}
+				}
+			},
+			movieFromCollection: '6902420'
 		}),
 		stateAfter: {
 			process: {
 				'673655561': {
 					L: 0, R: 0, m: 0,
-					finished: false
+					finished: false,
+					movieFromCollection: '6902420'
 				}
 			},
-			results: [{
-				movieFromCollection: '1931101123',
-				movieFromPersonalList: undefined,
-				comparisonWonByMovieFromCollection: true
-			}]
+			personalMovieList: ['1931101123']
 		}
 	});
+
 	it('iterate over two movies second won', {
 		stateBefore: {
 			process: {
 				'673655561': {
-					L: 0, R: 0, m: 0
+					L: 0, R: 0, m: 0,
+					finished: false,
+					movieFromCollection: '6902420'
 				}
 			},
-			results: [{
-				movieFromCollection: '1931101123',
-				movieFromPersonalList: undefined,
-				comparisonWonByMovieFromCollection: true
-			}]
+			personalMovieList: ['1931101123']
 		},
 		action: Actions.updateComparisonProcess('673655561',
 			{comparisonWonByMovieFromCollection: true}
@@ -57,28 +51,23 @@ describe('rate reducer', () => {
 			process: {
 				'673655561': {
 					finished: true,
-					result: 0
+					result: 0,
+					movieFromCollection: '6902420'
 				}
 			},
-			results: [{
-				movieFromCollection: '1931101123',
-				movieFromPersonalList: undefined,
-				comparisonWonByMovieFromCollection: true
-			}]
+			personalMovieList: ['1931101123']
 		}
 	});
-	it('iterate over two movies second won', {
+	it('iterate over two movies second lost', {
 		stateBefore: {
 			process: {
 				'673655561': {
-					L: 0, R: 0, m: 0
+					L: 0, R: 0, m: 0,
+					finished: false,
+					movieFromCollection: '6902420'
 				}
 			},
-			results: [{
-				movieFromCollection: '1931101123',
-				movieFromPersonalList: undefined,
-				comparisonWonByMovieFromCollection: true
-			}]
+			personalMovieList: ['1931101123']
 		},
 		action: Actions.updateComparisonProcess('673655561',
 			{comparisonWonByMovieFromCollection: false}
@@ -87,14 +76,35 @@ describe('rate reducer', () => {
 			process: {
 				'673655561': {
 					finished: true,
-					result: 1
+					result: 1,
+					movieFromCollection: '6902420'
 				}
 			},
-			results: [{
-				movieFromCollection: '1931101123',
-				movieFromPersonalList: undefined,
-				comparisonWonByMovieFromCollection: true
-			}]
+			personalMovieList: ['1931101123']
+		}
+	});
+
+	it('should finish comparison process two movies second won', {
+		stateBefore: {
+			process: {
+				'673655561': {
+					finished: true,
+					result: 0,
+					movieFromCollection: '6902420'
+				}
+			},
+			personalMovieList: ['1931101123']
+		},
+		action: Actions.finishComparisonProcess('673655561', {
+					finished: true,
+					result: 0,
+					movieFromCollection: '6902420'
+				}),
+		stateAfter: {
+			process: {
+				'673655561': undefined
+			},
+			personalMovieList: ['6902420', '1931101123']
 		}
 	});
 });
