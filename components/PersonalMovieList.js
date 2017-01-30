@@ -12,9 +12,8 @@ export default class PersonalMovieList extends React.Component {
 	}
 };
 
-const getMovieArray = ({ rate: { results }, movieCollections }) => {
-	const movieIds = resultsToMovieArray(results);
-	return enrich(movieIds, movieCollections);
+const getMovieArray = ({ rate: { personalMovieList }, movieCollections }) => {
+	return enrich(personalMovieList, movieCollections);
 };
 
 const enrich = (movieIds, movieCollections) => {

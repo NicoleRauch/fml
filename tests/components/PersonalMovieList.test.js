@@ -16,6 +16,7 @@ describe("PersonalMovieList", () => {
 			},
 			rate: {
 				processes: {},
+				personalMovieList: ['1931101123'],
 				results: [{
 					movieFromCollection: '1931101123', // Pulp Fiction
 					movieFromPersonalList: undefined,
