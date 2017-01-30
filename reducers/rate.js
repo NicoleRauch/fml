@@ -6,12 +6,7 @@ import {
 export default (state =
 {
 	process: {},
-	personalMovieList: ['1931101123'],
-	results: [{
-		movieFromCollection: '1931101123', // Pulp Fiction
-		movieFromPersonalList: undefined,
-		won: true
-	}]
+	personalMovieList: ['1931101123']
 }, action) => {
 	switch(action.type) {
 		case START_COMPARISON_PROCESS:
