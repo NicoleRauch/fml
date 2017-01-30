@@ -1,6 +1,5 @@
 import React from 'react'
 import MovieList from './MovieList'
-import resultsToMovieArray from '../lib/rateResultsToMovieArray'
 
 export default class PersonalMovieList extends React.Component {
 
