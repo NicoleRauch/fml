@@ -1,26 +1,32 @@
 import React from 'react'
 import * as Actions from '../actions/';
 import MovieCompareForm from '../components/MovieCompareForm'
-import chooseNextMoviesToCompare from '../lib/chooseNextMoviesToCompare'
+import toMovieObject from '../lib/movieIdToMovieObject'
 
 export default class MovieCompare extends React.Component {
 	constructor (props) {
 		super(props)
-		this.url = props.url;
 		this.dispatch = props.dispatch;
 		this.submit = this.submit.bind(this);
-		this.nextMovies = chooseNextMoviesToCompare();
+		this.process = this.props.rate.process[this.props.collectionId];
+		const movieFromCollection = toMovieObject(
+				this.process.movieFromCollection,
+				this.props.movieCollections
+		);
+		const movieFromPersonalList = toMovieObject(
+				this.props.rate.personalMovieList[this.process.m],
+				this.props.movieCollections
+		);
 		this.nextMovies = {
-			movieFromCollection: { id: '1997372447', title:'Matrix' },
-			movieFromPersonalList: { id:'1931101123', title:'Pulp Fiction' }
+			movieFromCollection,
+			movieFromPersonalList
 		};
 	}
 
 	submit(evt) {
-		this.dispatch(Actions.saveComparisonResult({
-			movieFromCollection: this.nextMovies.movieFromCollection.id,
-			movieFromPersonalList: this.nextMovies.movieFromPersonalList.id,
-			won: (evt.target.name === this.nextMovies.movieFromCollection.id)
+		this.dispatch(Actions.updateComparisonProcess(this.props.collectionId, {
+			comparisonWonByMovieFromCollection:
+				(evt.target.name === this.nextMovies.movieFromCollection.id)
 		}));
 	}
 

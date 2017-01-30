@@ -22,7 +22,7 @@ class Rate extends React.Component {
 		let { url: { query: { id } } } = this.props;
 		return (
 			<Provider store={this.store}>
-				<RateApp collectionId={id} />
+				<RateApp collectionId={id} {...this.props}/>
 			</Provider>
 	   )
 	}

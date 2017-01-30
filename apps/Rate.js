@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 
-import MovieCompare from '../components/MovieCompare';
+import MovieComparisonProcess from '../components/MovieComparisonProcess';
 
 export class RateApp extends React.Component {
 	constructor (props) {
@@ -13,7 +13,7 @@ export class RateApp extends React.Component {
 		return (
 			<div>
 				<p>Rate movies from movie collection {collectionId}:</p>
-				<MovieCompare collectionId={collectionId} {...this.props}/>
+				<MovieComparisonProcess collectionId={collectionId} {...this.props}/>
 			</div>
 	   )
 	}
