@@ -10,6 +10,7 @@ export default class MovieCompareStart extends React.Component {
 		this.dispatch = props.dispatch;
 		this.submit = this.submit.bind(this);
 		this.movieCollection = this.props.movieCollections[this.props.collectionId];
+		this.personalMovieList = this.props.rate.personalMovieList;
 		this.nextMovieId = getUnratedMovieFromCollection(
 				this.props.rate.personalMovieList,
 				this.movieCollection
@@ -20,7 +21,8 @@ export default class MovieCompareStart extends React.Component {
 	submit(evt) {
 		this.dispatch(Actions.startComparisonProcess({
 			movieCollection: this.movieCollection,
-			movieFromCollection: this.nextMovieId
+			movieFromCollection: this.nextMovieId,
+			personalMovieListLength: this.personalMovieList.length
 		}));
 	}
 

@@ -10,16 +10,10 @@ describe('rate reducer', () => {
 			personalMovieList: ['1931101123']
 		},
 		action: Actions.startComparisonProcess({movieCollection: {
-				name:'Hugo Blurays',
-				isLoading: false,
-				sort: "title",
-				movies: {
-					'1931101123':{title:'Pulp Fiction'},
-					'6902420':{title:'The Walk - Eine triumphale wahre Geschichte (2015)'},
-					'12675280':{title:'96 Hours - Taken 2 (2012)'}
-				}
+				name:'Hugo Blurays'
 			},
-			movieFromCollection: '6902420'
+			movieFromCollection: '6902420',
+			personalMovieListLength: 1
 		}),
 		stateAfter: {
 			process: {

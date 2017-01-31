@@ -1,11 +1,9 @@
 import { combineReducers } from 'redux';
 import movieCollections from './movieCollections.js';
-import rate from './rate.js';
+import rate from './rate/';
 
-const fmlApp = combineReducers({
+export default combineReducers({
 	movieCollections,
 	rate
 });
-
-export default fmlApp;
 
