@@ -27,57 +27,6 @@ describe('rate reducer', () => {
 		}
 	});
 
-	it('iterate over two movies second won', {
-		stateBefore: {
-			process: {
-				'673655561': {
-					L: 0, R: 0, m: 0,
-					finished: false,
-					movieFromCollection: '6902420'
-				}
-			},
-			personalMovieList: ['1931101123']
-		},
-		action: Actions.updateComparisonProcess('673655561',
-			{comparisonWonByMovieFromCollection: true}
-		),
-		stateAfter: {
-			process: {
-				'673655561': {
-					finished: true,
-					result: 0,
-					movieFromCollection: '6902420'
-				}
-			},
-			personalMovieList: ['1931101123']
-		}
-	});
-	it('iterate over two movies second lost', {
-		stateBefore: {
-			process: {
-				'673655561': {
-					L: 0, R: 0, m: 0,
-					finished: false,
-					movieFromCollection: '6902420'
-				}
-			},
-			personalMovieList: ['1931101123']
-		},
-		action: Actions.updateComparisonProcess('673655561',
-			{comparisonWonByMovieFromCollection: false}
-		),
-		stateAfter: {
-			process: {
-				'673655561': {
-					finished: true,
-					result: 1,
-					movieFromCollection: '6902420'
-				}
-			},
-			personalMovieList: ['1931101123']
-		}
-	});
-
 	it('should finish comparison process two movies second won', {
 		stateBefore: {
 			process: {
