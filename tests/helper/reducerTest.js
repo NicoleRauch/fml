@@ -10,6 +10,7 @@ export default (reducer, description, params) => {
 				return reducer(state, action);
 			}, stateBefore);
 			expect(actual).toEqual(stateAfter);
+			return;
 		}
 
 		if(stateBefore) deepFreeze(stateBefore);
