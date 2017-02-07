@@ -18,7 +18,7 @@ describe('rate reducer', () => {
 		stateAfter: {
 			process: {
 				'673655561': {
-					L: 0, R: 0, m: 0,
+					L: 0, R: 1, m: 0,
 					finished: false,
 					movieFromCollection: '6902420'
 				}

@@ -22,7 +22,7 @@ const process = (state =
 }, action) => {
 	switch(action.type) {
 		case START_COMPARISON_PROCESS:
-			const R = action.payload.personalMovieListLength-1;
+			const R = action.payload.personalMovieListLength;
 			return Object.assign({}, state, {
 				L: 0,
 				R: R,
@@ -45,12 +45,21 @@ const process = (state =
 };
 
 const iterateBinarySearch = (L, R, m, comparisonResult) => {
-	if(L===0 && R===0) {
-		const result = comparisonResult ? L : 1;
+	let l = L,
+		r = R;
+
+	if(comparisonResult) {
+		r = m-1;
+	} else {
+		l = m+1;
+	}
+
+	console.log({L, R, m, l, r});
+	if(l >=r) {
 		return {
 			finished: true,
-			result: result
-		}
+			result: l
+		};
 	}
 };
 

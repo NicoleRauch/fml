@@ -7,7 +7,7 @@ describe('rate reducer', () => {
 	it('iterate over two movies second won', {
 		stateBefore: {
 			'673655561': {
-				L: 0, R: 0, m: 0,
+				L: 0, R: 1, m: 0,
 				finished: false,
 				movieFromCollection: '6902420'
 			}
@@ -26,7 +26,7 @@ describe('rate reducer', () => {
 	it('iterate over two movies second lost', {
 		stateBefore: {
 			'673655561': {
-				L: 0, R: 0, m: 0,
+				L: 0, R: 1, m: 0,
 				finished: false,
 				movieFromCollection: '6902420'
 			}
