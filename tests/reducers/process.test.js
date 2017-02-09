@@ -42,24 +42,66 @@ describe('rate reducer', () => {
 			}
 		}
 	});
+
 	it('iterate over three movies third lost,lost [1,2,x]', {
 		stateBefore: {
 			'673655561': {
-				L: 0, R: 2, m: 0,
+				L: 0, R: 2, m: 1,
+				finished: false,
+				movieFromCollection: '6902420'
+			}
+		},
+		action: Actions.updateComparisonProcess('673655561',
+				{comparisonWonByMovieFromCollection: false}
+	    ),
+		stateAfter: {
+			'673655561': {
+				finished: true,
+				result: 2,
+				movieFromCollection: '6902420'
+			}
+		}
+	});
+	it('iterate over three movies third lost,lost [1,x,2]', {
+		stateBefore: {
+			'673655561': {
+				L: 0, R: 2, m: 1,
 				finished: false,
 				movieFromCollection: '6902420'
 			}
 		},
 		actions: [
 			Actions.updateComparisonProcess('673655561',
-				{comparisonWonByMovieFromCollection: false}),
+				{comparisonWonByMovieFromCollection: true}),
 			Actions.updateComparisonProcess('673655561',
 				{comparisonWonByMovieFromCollection: false}),
 		],
 		stateAfter: {
 			'673655561': {
 				finished: true,
-				result: 2,
+				result: 1,
+				movieFromCollection: '6902420'
+			}
+		}
+	});
+	it('iterate over three movies third lost,lost [x,1,2]', {
+		stateBefore: {
+			'673655561': {
+				L: 0, R: 2, m: 1,
+				finished: false,
+				movieFromCollection: '6902420'
+			}
+		},
+		actions: [
+			Actions.updateComparisonProcess('673655561',
+				{comparisonWonByMovieFromCollection: true}),
+			Actions.updateComparisonProcess('673655561',
+				{comparisonWonByMovieFromCollection: true}),
+		],
+		stateAfter: {
+			'673655561': {
+				finished: true,
+				result: 0,
 				movieFromCollection: '6902420'
 			}
 		}
