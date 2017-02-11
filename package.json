@@ -40,10 +40,10 @@
 	],
 	"coverageThreshold": {
 		"global": {
-			"statements": 29,
-			"branches": 9,
-			"functions": 33,
-			"lines": 59
+			"statements": 30,
+			"branches": 10,
+			"functions": 34,
+			"lines": 62
 		}
 	},
 	"bail": true
