@@ -1,3 +1,4 @@
+set -x;
 FILE=index.html
 MINIMUMSIZE=1000
 BACKOFF=15
@@ -6,7 +7,6 @@ max=5
 
 while [ $i -lt $max ]
 do
-	echo "wget fml.dev.christophhaefner.de -O $FILE";
 	wget fml.dev.christophhaefner.de -O $FILE;
 	if [ $? -eq 0 ]; then
 		break
