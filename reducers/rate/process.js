@@ -49,23 +49,14 @@ const iterateBinarySearch = (L, R, m, comparisonResult) => {
 		r = R;
 
 	if(comparisonResult) {
-		r = m-1;
+		r = m;
 	} else {
 		l = m+1;
 	}
 
 	const nextM = Math.floor((l+r)/2);
 
-	if(l===0 && r===0) {
-		return {
-			finished: false,
-			L: l,
-			R: r,
-			m: nextM
-		};
-	}
-
-	if(l >=r) {
+	if(l === r) {
 		return {
 			finished: true,
 			result: l
