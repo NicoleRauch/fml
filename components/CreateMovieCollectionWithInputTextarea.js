@@ -3,6 +3,7 @@ import FormTextarea from '../components/MovieCollectionFormTextarea';
 import * as Actions from '../actions/';
 
 export default class CreateMovieCollectionWithInputTextarea extends React.Component {
+
 	constructor (props) {
 		super(props)
 		this.url = props.url;

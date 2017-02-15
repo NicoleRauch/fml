@@ -2,6 +2,7 @@ import React from 'react'
 import MovieCollection from './MovieCollectionItem'
 
 export default class MovieCollectionList extends React.Component {
+
 	constructor (props) {
 		super(props)
 	}
