@@ -1,0 +1,20 @@
+{
+    "collectCoverageFrom": [
+		"actions/**/*.js",
+		"apps/**/*.js",
+		"components/**/*.js",
+		"lib/**/*.js",
+		"reducers/**/*.js",
+		"store.js"
+	],
+	"coverageThreshold": {
+		"global": {
+			"statements": 34,
+			"branches": 12,
+			"functions": 38,
+			"lines": 63
+		}
+	},
+	"bail": true
+}
+

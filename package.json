@@ -24,28 +24,9 @@
   },
   "scripts": {
     "minifyWorker": "babili --minified --compact=\"true\" --no-comments static/worker -d static/minifiedWorker",
-    "test": "jest --coverage",
-    "test:watch": "jest --watch",
+    "test": "jest --coverage --config .jestrc",
+    "test:watch": "jest --watch --config .jestrc",
     "dev": "next",
     "start": "next build && next start"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-		"actions/**/*.js",
-		"apps/**/*.js",
-		"components/**/*.js",
-		"lib/**/*.js",
-		"reducers/**/*.js",
-		"store.js"
-	],
-	"coverageThreshold": {
-		"global": {
-			"statements": 34,
-			"branches": 12,
-			"functions": 38,
-			"lines": 63
-		}
-	},
-	"bail": true
   }
 }
