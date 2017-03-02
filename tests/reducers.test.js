@@ -19,7 +19,7 @@ describe('movies reducer', () => {
 			}, // movieCollections
 			rate: {
 				process: {},
-				personalMovieList: ['1931101123']
+				personalMovieList: []
 			}
 		} // stateAfter
 	} // params

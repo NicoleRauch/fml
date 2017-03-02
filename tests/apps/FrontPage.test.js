@@ -14,7 +14,7 @@ describe("FrontPageApp", () => {
 				<App />
 			</Provider>
 		);
-		expect(wrapper.find('ol').children()).toHaveLength(1);
+		expect(wrapper.find('ol').children()).toHaveLength(0);
 	});
 });
 

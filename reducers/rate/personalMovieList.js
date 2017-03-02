@@ -1,6 +1,6 @@
 import { FINISH_COMPARISON_PROCESS } from '../../actions/'
 
-export default (state = ['1931101123'], action) => {
+export default (state = [], action) => {
 	switch(action.type) {
 		case FINISH_COMPARISON_PROCESS:
 			const result = state.concat();
@@ -10,3 +10,4 @@ export default (state = ['1931101123'], action) => {
 			return state;
 	}
 };
+
