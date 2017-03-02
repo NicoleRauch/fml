@@ -74,6 +74,14 @@ export const startComparisonProcess = (payload) => {
 		payload: payload
 	};
 };
+export const ADD_CHOSEN_MOVIE_TO_COMPARISON_PROCESS = 'ADD_CHOSEN_MOVIE_TO_COMPARISON_PROCESS';
+export const addChosenMovieToComparisonProcess = (payload) => {
+	return {
+		type: ADD_CHOSEN_MOVIE_TO_COMPARISON_PROCESS,
+		id: hashCode(payload.movieCollection.name),
+		payload: payload
+	};
+};
 export const UPDATE_COMPARISON_PROCESS = 'UPDATE_COMPARISON_PROCESS';
 export const updateComparisonProcess = (id, result) => {
 	return {
