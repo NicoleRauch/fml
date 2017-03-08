@@ -3,7 +3,7 @@ import MovieCollection from './MovieCollectionItem'
 
 export default class MovieCollectionList extends React.Component {
 	render() {
-		const collections = this.props.collections || [];
+		const collections = this.props.movieCollections || [];
 		const movieCollections = enhance(collections);
 		return (
 			<ol>

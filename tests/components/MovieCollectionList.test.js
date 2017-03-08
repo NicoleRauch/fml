@@ -12,7 +12,7 @@ describe("MovieCollectionList", () => {
 	});
 	it('empty collections should render to empty list', () => {
 		const props = {
-			collections: {}
+			movieCollections: {}
 		}
 		const wrapper = mount(<Component {...props} />)
 
@@ -21,7 +21,7 @@ describe("MovieCollectionList", () => {
 	});
 	it('should render self+sub-components loading or not', () => {
 		const props = {
-			collections: {
+			movieCollections: {
 				'67887760': {
 					name: "First",
 					isLoading: false,
