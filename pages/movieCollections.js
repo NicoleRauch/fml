@@ -22,7 +22,7 @@ class MovieCollectionsPage extends React.Component {
 		const collections = this.props.movieCollections;
 		return (
 			<Provider store={this.store}>
-				<MovieCollectionsApp />
+				<MovieCollectionsApp {...this.props}/>
 			</Provider>
 		)
 	}

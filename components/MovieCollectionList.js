@@ -12,6 +12,7 @@ export default class MovieCollectionList extends React.Component {
 						key={movieCollectionId}
 						id={movieCollectionId}
 						{...movieCollections[movieCollectionId]}
+						{...this.props}
 					/>
 				)}
 			</ol>

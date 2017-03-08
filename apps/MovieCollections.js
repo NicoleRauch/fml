@@ -10,12 +10,11 @@ export class MovieCollectionApp extends React.Component {
 	}
 
 	render() {
-		const collections = this.props.movieCollections;
 		return (
 			<div>
 				<p><Link href='/'>Back</Link></p>
 				<p>List of all Movie Collections:</p>
-				<MovieCollectionList collections={collections} />
+				<MovieCollectionList {...this.props} />
 				<p><Link href='/addMovieCollection'>Add a new movie collection</Link></p>
 			</div>
 	   )
