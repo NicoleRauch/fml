@@ -29,7 +29,6 @@ describe("MovieCompare", () => {
 		const wrapper = mount(<Component {...props} />)
 
 		const firstButton = wrapper.find('button').first();
-		expect(firstButton.text()).toBe("b");
 		firstButton.simulate('click');
 
 		expect(props.dispatch).toHaveBeenCalledTimes(1);
@@ -44,7 +43,6 @@ describe("MovieCompare", () => {
 		const wrapper = mount(<Component {...props} />)
 
 		const secondButton = wrapper.find('button').last();
-		expect(secondButton.text()).toBe("a");
 		secondButton.simulate('click');
 
 		expect(props.dispatch).toHaveBeenCalledTimes(1);

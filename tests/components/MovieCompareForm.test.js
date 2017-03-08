@@ -12,6 +12,8 @@ describe("MovieCompareForm", () => {
 		const wrapper = shallow(<MovieCompareForm {...props} />)
 
 		expect(wrapper.find('button').children().length).toBe(2);
+		expect(wrapper.find('button').first().text()).toBe("Pulp Fiction");
+		expect(wrapper.find('button').last().text()).toBe("Matrix");
 	});
 });
 
