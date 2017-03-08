@@ -1,25 +1,26 @@
 import React from 'react'
-import Link from 'next/link';
+import * as Actions from '../actions/';
+import MovieCollectionItemForm from '../components/MovieCollectionItemForm'
 
-export default ({ id, name, isLoading, moviesQuantity }) => (
-	/*
-	 * Hugo (author) [100%]
-	 * Datengrab (author) [50% => 20 left]
-	 */
-	<li>
-		{name} { isLoading && <LoadingMovieCollection moviesQuantity={moviesQuantity}/>} { !isLoading && <AvailableMovieCollection id={id} /> }
-	</li>
-)
+export default class MovieCollectionItem extends React.Component {
 
-const AvailableMovieCollection = ({ id }) => (
-	<span>
-		<Link href={'/movieCollection?id='+id}>Show</Link> <Link href={'/rate?id='+id}>Rate</Link>
-	</span>
-)
+	constructor (props) {
+		super(props)
+		this.url = props.url;
+		this.dispatch = props.dispatch;
+		this.rate = this.rate.bind(this);
+	}
 
-const LoadingMovieCollection = ({ moviesQuantity='?' }) => (
-	<span>
-		<img src="/static/loadingSpinner14x14.gif" alt="Loading Spinner" /> ({moviesQuantity})
-	</span>
-)
+	rate(evt) {
+		//this.dispatch(Actions.startComparisonProcess(this.props.id));
+		this.url.pushTo('/rate?id='+this.props.id);
+	}
+
+	render() {
+		return (
+			<MovieCollectionItemForm onRate={this.rate}
+				{...this.props} />
+		);
+	}
+};
 
