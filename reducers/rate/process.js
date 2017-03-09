@@ -1,10 +1,12 @@
 import {
+	START_EMPTY_PROCESS,
 	START_COMPARISON_PROCESS,
 	UPDATE_COMPARISON_PROCESS,
 	FINISH_COMPARISON_PROCESS } from '../../actions/'
 
 export default (state = {}, action) => {
 	switch(action.type) {
+		case START_EMPTY_PROCESS:
 		case START_COMPARISON_PROCESS:
 		case UPDATE_COMPARISON_PROCESS:
 		case FINISH_COMPARISON_PROCESS:

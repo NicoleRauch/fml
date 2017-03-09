@@ -4,6 +4,22 @@ const it = reducerTest.bind(null, reducer);
 import * as Actions from "../../actions/"
 
 describe('rate reducer', () => {
+	it('should start an empty comparison process', {
+		stateBefore: {
+			process: {},
+			personalMovieList: []
+		},
+		action: Actions.startEmptyProcess('673655561'),
+		stateAfter: {
+			process: {
+				'673655561': {
+					finished: false
+				}
+			},
+			personalMovieList: []
+		}
+	});
+
 	it('should start the comparison process', {
 		stateBefore: {
 			process: {},

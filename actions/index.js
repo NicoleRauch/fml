@@ -66,6 +66,14 @@ export const addMovie = (movie) => {
 	}
 };
 
+export const START_EMPTY_PROCESS = 'START_EMPTY_PROCESS';
+export const startEmptyProcess = (id) => {
+	return {
+		type: START_EMPTY_PROCESS,
+		id: id
+	};
+};
+
 export const START_COMPARISON_PROCESS = 'START_COMPARISON_PROCESS';
 export const startComparisonProcess = (payload) => {
 	return {
