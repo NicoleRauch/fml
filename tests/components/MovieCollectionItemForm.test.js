@@ -31,8 +31,8 @@ describe("MovieCollectionItemForm", () => {
 
 		expect(wrapper.text()).toContain("Abc");
 		expect(wrapper.text()).toContain("?");
-		expect(wrapper.find("a").isEmpty()).toBe(true);
-		expect(wrapper.find("img").isEmpty()).toBe(false);
+		expect(wrapper.find("a").exists()).toBe(true);
+		expect(wrapper.find("img").exists()).toBe(false);
 	});
 	it('if loading with quantity should render self and show name, moviesQuantity and image', () => {
 		const props = {
@@ -45,8 +45,8 @@ describe("MovieCollectionItemForm", () => {
 
 		expect(wrapper.text()).toContain("Abc");
 		expect(wrapper.text()).toContain("14");
-		expect(wrapper.find("a").isEmpty()).toBe(true);
-		expect(wrapper.find("img").isEmpty()).toBe(false);
+		expect(wrapper.find("a").exists()).toBe(true);
+		expect(wrapper.find("img").exists()).toBe(false);
 	});
 
 });
