@@ -12,7 +12,7 @@ export default class MovieCollectionItem extends React.Component {
 	}
 
 	rate(evt) {
-		//this.dispatch(Actions.startComparisonProcess(this.props.id));
+		this.dispatch(Actions.startEmptyProcess(this.props.id));
 		this.url.pushTo('/rate?id='+this.props.id);
 	}
 

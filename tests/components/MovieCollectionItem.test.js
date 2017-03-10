@@ -8,6 +8,7 @@ describe("MovieCollectionItem", () => {
 		id: '12',
 		name: 'Abc',
 		moviesQuantity: 14,
+		dispatch: jest.fn(),
 		url: {
 			pushTo: jest.fn()
 		}
