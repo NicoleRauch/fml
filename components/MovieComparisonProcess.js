@@ -2,7 +2,6 @@ import React from 'react'
 import * as Actions from '../actions/';
 import MovieCompare from '../components/MovieCompare'
 import MovieCompareChoose from '../components/MovieCompareChoose'
-import MovieCompareStart from '../components/MovieCompareStart'
 import MovieCompareFinish from '../components/MovieCompareFinish'
 
 export default class MovieComparisonProcess extends React.Component {
