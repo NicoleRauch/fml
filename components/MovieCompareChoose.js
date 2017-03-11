@@ -22,8 +22,8 @@ export default class MovieCompareChoose extends React.Component {
 	start(evt) {
 		this.dispatch(Actions.addChosenMovieToComparisonProcess({
 			movieCollection: this.movieCollection,
+			target: this.props.target,
 			chosenMovie: this.movieId,
-			personalMovieListLength: this.personalMovieList.length
 		}));
 	}
 

@@ -19,6 +19,30 @@ describe('rate reducer', () => {
 			personalMovieList: []
 		}
 	});
+	it('should add chosen movie to process', {
+		stateBefore: {
+			process: {
+				'673655561': {
+					finished: false
+				}
+			},
+			personalMovieList: []
+		},
+		action: Actions.addChosenMovieToComparisonProcess({target: "secondMovieFromCollection",
+			chosenMovie: "12",
+			movieCollection: {
+				name:'Hugo Blurays'
+			}}),
+		stateAfter: {
+			process: {
+				'673655561': {
+					secondMovieFromCollection: "12",
+					finished: false
+				}
+			},
+			personalMovieList: []
+		}
+	});
 
 	it('should start the comparison process', {
 		stateBefore: {

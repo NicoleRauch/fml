@@ -17,14 +17,5 @@ describe("RateApp", () => {
 		expect(wrapper.find('a')).toHaveLength(1);
 		expect(wrapper.find('a').prop('href')).toBe('/');
 	});
-
-	it('should render self+subcomponents, and show one start button', () => {
-		const wrapper = mount(
-			<Provider store={store}>
-				<App collectionId="673655561"/>
-			</Provider>
-		);
-		expect(wrapper.find('button')).toHaveLength(1);
-	});
 });
 
