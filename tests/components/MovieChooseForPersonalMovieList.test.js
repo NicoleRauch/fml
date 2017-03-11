@@ -1,9 +1,9 @@
 import React from 'react'
 import { mount } from 'enzyme'
 
-import Component from '../../components/MovieCompareChoose'
+import Component from '../../components/MovieChooseForPersonalMovieList'
 
-describe("MovieCompareChoose", () => {
+describe("MovieChooseForPersonalMovieList", () => {
 	const props = {
 		collectionId: 1992220832,
 		rate: {
@@ -25,24 +25,17 @@ describe("MovieCompareChoose", () => {
 			}
 		}
 	}
-	it('should call onStart callback if start button is clicked', () => {
-		props.onStart = jest.fn();
+	it('should dispatch action if onStart is called', () => {
+		props.dispatch = jest.fn();
 		const wrapper = mount(<Component {...props} />)
 
 		const startButton = wrapper.find('button').at(1);
 		startButton.simulate('click');
 
-		expect(props.onStart).toHaveBeenCalledTimes(1);
-		const params = props.onStart.mock.calls[0][0]
-		expect(params).toBeTruthy();
-		expect(params.chosenMovie).toBe('11');
-		expect(params.movieCollection).toEqual({
-			name: "BlaBla",
-			movies: {
-				'11': {title:"a"},
-				'12': {title:"b"}
-			}
-		});
+		expect(props.dispatch).toHaveBeenCalledTimes(1);
+		const action = props.dispatch.mock.calls[0][0]
+		expect(action).toBeTruthy();
+		expect(action.payload.movieId).toBe('11');
 	});
 
 });

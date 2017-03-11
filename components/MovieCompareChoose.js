@@ -10,21 +10,13 @@ export default class MovieCompareChoose extends React.Component {
 		this.dispatch = props.dispatch;
 		this.start = this.start.bind(this);
 		this.neverSeenIt = this.neverSeenIt.bind(this);
-		this.movieCollection = this.props.movieCollections[this.props.collectionId];
-		this.personalMovieList = this.props.rate.personalMovieList;
-		this.movieId = getUnratedMovieFromCollection(
-				this.props.rate.personalMovieList,
-				this.movieCollection
-		);
-		this.movie = toMovieObject(this.movieId, this.props.movieCollections);
 	}
 
 	start(evt) {
-		this.dispatch(Actions.addChosenMovieToComparisonProcess({
+		this.props.onStart({
 			movieCollection: this.movieCollection,
-			target: this.props.target,
-			chosenMovie: this.movieId,
-		}));
+			chosenMovie: this.movieId
+		});
 	}
 
 	neverSeenIt(evt) {
@@ -33,6 +25,14 @@ export default class MovieCompareChoose extends React.Component {
 	}
 
 	render() {
+		const collectionId = this.props.collectionId;
+		this.movieCollection = this.props.movieCollections[collectionId];
+		this.personalMovieList = this.props.rate.personalMovieList;
+		this.movieId = getUnratedMovieFromCollection(
+				this.props.rate.personalMovieList,
+				this.movieCollection
+		);
+		this.movie = toMovieObject(this.movieId, this.props.movieCollections);
 		return (
 			<MovieCompareChooseForm onStart={this.start}
 				onNeverSeenIt={this.neverSeenIt}

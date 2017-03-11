@@ -19,7 +19,7 @@ export default class MovieCompareFinish extends React.Component {
 		this.result = this.process.result+1;
 	}
 
-	next(evt) {
+	finishComparisonProcess() {
 		this.dispatch(Actions.finishComparisonProcess(
 				this.props.collectionId,
 				this.process
@@ -27,8 +27,17 @@ export default class MovieCompareFinish extends React.Component {
 		);
 	}
 
+	startEmptyProcess() {
+		this.dispatch(Actions.startEmptyProcess(this.props.collectionId));
+	}
+
+	next(evt) {
+		this.finishComparisonProcess();
+		this.startEmptyProcess();
+	}
+
 	finish(evt) {
-		this.next(evt);
+		this.finishComparisonProcess();
 		this.url.pushTo('/');
 	}
 

@@ -66,6 +66,16 @@ export const addMovie = (movie) => {
 	}
 };
 
+export const ADD_MOVIE_TO_PERSONAL_MOVIE_LIST = 'ADD_MOVIE_TO_PERSONAL_MOVIE_LIST';
+export const addMovieToPersonalMovieList = (movieId) => {
+	return {
+		type: ADD_MOVIE_TO_PERSONAL_MOVIE_LIST,
+		payload: {
+			movieId
+		}
+	};
+};
+
 export const START_EMPTY_PROCESS = 'START_EMPTY_PROCESS';
 export const startEmptyProcess = (id) => {
 	return {
@@ -78,14 +88,6 @@ export const START_COMPARISON_PROCESS = 'START_COMPARISON_PROCESS';
 export const startComparisonProcess = (payload) => {
 	return {
 		type: START_COMPARISON_PROCESS,
-		id: hashCode(payload.movieCollection.name),
-		payload: payload
-	};
-};
-export const ADD_CHOSEN_MOVIE_TO_COMPARISON_PROCESS = 'ADD_CHOSEN_MOVIE_TO_COMPARISON_PROCESS';
-export const addChosenMovieToComparisonProcess = (payload) => {
-	return {
-		type: ADD_CHOSEN_MOVIE_TO_COMPARISON_PROCESS,
 		id: hashCode(payload.movieCollection.name),
 		payload: payload
 	};
