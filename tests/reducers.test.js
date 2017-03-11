@@ -21,7 +21,8 @@ describe('movies reducer', () => {
 				process: {},
 				personalMovieList: []
 			}
-		} // stateAfter
+		}, // stateAfter
+		matchObject: true
 	} // params
 	) // it
 })

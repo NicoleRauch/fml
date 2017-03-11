@@ -2,7 +2,8 @@ import deepFreeze from 'deep-freeze'
 
 export default (reducer, description, params) => {
 	it(description, () => {
-		const { stateBefore, action, actions, stateAfter } = params;
+		const { stateBefore, action,
+				actions, stateAfter, matchObject } = params;
 
 		if(Array.isArray(actions)) {
 			const actual = actions.reduce((state, action) => {
@@ -16,7 +17,11 @@ export default (reducer, description, params) => {
 		if(stateBefore) deepFreeze(stateBefore);
 		deepFreeze(action);
 
-		expect(reducer(stateBefore, action)).toEqual(stateAfter);
+		if(!matchObject) {
+			expect(reducer(stateBefore, action)).toEqual(stateAfter);
+		} else {
+			expect(reducer(stateBefore, action)).toMatchObject(stateAfter);
+		}
 	});
 };
 
