@@ -12,7 +12,7 @@
 			"statements": 56,
 			"branches": 28,
 			"functions": 65,
-			"lines": 74
+			"lines": 73
 		}
 	},
 	"bail": true

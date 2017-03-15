@@ -20,7 +20,8 @@ export const initStore = (initialState, isServer) => {
 
 const instantiateStore = (initialState, composeEnhancer) => {
 	let enhancer = compose(applyMiddleware(thunkMiddleware));
-	if(initialState.env.nodeEnv !== "production") {
+	if(initialState && initialState.env &&
+			initialState.env.nodeEnv !== "production") {
 		const composer = composeEnhancer || window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 		enhancer =  composer(
 			applyMiddleware(
