@@ -12,7 +12,7 @@ export const initStore = (initialState, isServer) => {
 		return instantiateStore(initState, compose);
 	} else {
 		if(!window.store) {
-			window.store = instantiateStore(initialState);
+			window.store = instantiateStore(initialState, compose);
 		}
 		return window.store;
 	}
