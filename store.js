@@ -50,7 +50,8 @@ const instantiateStore = (initialState, composeEnhancer) => {
 		);
 	}
 	const store = createStore(reducer, initialState, enhancer);
-	if(engine && initialState.env.nodeEnv === "production") {
+	if(engine && initialState && initialState.env &&
+			initialState.env.nodeEnv === "production") {
 		const load = storage.createLoader(engine);
 		load(store);
 	}
