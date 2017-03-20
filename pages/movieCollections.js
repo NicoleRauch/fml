@@ -19,7 +19,6 @@ class MovieCollectionsPage extends React.Component {
 	}
 
 	render() {
-		const collections = this.props.movieCollections;
 		return (
 			<Provider store={this.store}>
 				<MovieCollectionsApp {...this.props}/>

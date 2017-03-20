@@ -12,14 +12,26 @@ export class FrontPageApp extends React.Component {
 	render() {
 		return (
 			<div>
-				<p>Logged in! <Link href='/movieCollections'>Rate movie collections</Link></p>
-				<div>
-					<p>Filters: Genre (Action, Drama, etc.), ...</p>
-				</div>
-				<div>
-					<p>Your Movies:</p>
-					<PersonalMovieList {...this.props} />
-				</div>
+				{
+					this.props.rate.personalMovieList.length > 0 &&
+					<div>
+						<div>
+							<p>Filters: Genre (Action, Drama, etc.), ...</p>
+						</div>
+						<div>
+							<p>Your Movies:</p>
+							<PersonalMovieList {...this.props} />
+						</div>
+						<p><Link href='/movieCollections'>Rate more</Link></p>
+					</div>
+				}
+				{
+					this.props.rate.personalMovieList.length <= 0 &&
+					<div>
+						<p>Start by choosing a <Link href='/movieCollections'>Movie Collection</Link> to rate movies.</p>
+						<p><Link href='/auth/signin'>Login</Link> to sync your progress across devices.</p>
+					</div>
+				}
 			</div>
 	   )
 	}
