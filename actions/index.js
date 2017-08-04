@@ -1,4 +1,4 @@
-import {hashCode} from '../reducers/movieCollections';
+import {hashCode} from '../src/movieCollections/reducers';
 
 export const START_EMPTY_PROCESS = 'START_EMPTY_PROCESS';
 export const startEmptyProcess = (id) => {

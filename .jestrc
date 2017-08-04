@@ -5,6 +5,7 @@
 		"components/**/*.js",
 		"lib/**/*.js",
 		"reducers/**/*.js",
+		"src/**/*.js",
 		"store.js"
 	],
 	"coverageThreshold": {

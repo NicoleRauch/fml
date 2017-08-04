@@ -1,5 +1,5 @@
 import reducerTest from '../helper/reducerTest'
-import reducer from '../../reducers/movieCollections'
+import reducer from '../../src/movieCollections/reducers'
 import * as Actions from '../../src/movieCollections/actions'
 
 const it = reducerTest.bind(null, reducer);

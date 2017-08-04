@@ -1,4 +1,4 @@
-import {hashCode} from '../../reducers/movieCollections';
+import {hashCode} from './reducers';
 
 export const ADD_MOVIECOLLECTION_WITH_MOVIES_LINE_BY_LINE = 'ADD_MOVIECOLLECTION_WITH_MOVIES_LINE_BY_LINE';
 export const ADD_MOVIECOLLECTION_BY_FILE_START = 'ADD_MOVIECOLLECTION_BY_FILE_START';
