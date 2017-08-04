@@ -1,5 +1,5 @@
 import React from 'react'
-import * as Actions from '../reducers/movieCollections';
+import * as Actions from '../src/movieCollections/actions';
 import MovieCompareChoose from '../components/MovieCompareChoose';
 
 export default class MovieChooseForPersonalMovieList extends React.Component {
