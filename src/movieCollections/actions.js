@@ -62,8 +62,6 @@ export const ADD_MOVIE_TO_PERSONAL_MOVIE_LIST = 'ADD_MOVIE_TO_PERSONAL_MOVIE_LIS
 export const addMovieToPersonalMovieList = (movieId) => {
   return {
     type: ADD_MOVIE_TO_PERSONAL_MOVIE_LIST,
-    payload: {
-      movieId
-    }
+    payload: { movieId }
   };
 };

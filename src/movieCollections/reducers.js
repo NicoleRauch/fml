@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux';
 
+import reducer from '../createReducer';
+
 import {
   ADD_MOVIECOLLECTION_WITH_MOVIES_LINE_BY_LINE,
   ADD_MOVIECOLLECTION_BY_FILE_FINISHED,
@@ -140,16 +142,11 @@ const INITIAL_STATE_FOR_ACTION_ID = {
   name: "AWESOME!! Volume I"
 };
 
-const isLoading = (state = INITIAL_STATE_FOR_ACTION_ID.isLoading, action = {}) => {
-  switch (action.type) {
-    case ADD_MOVIECOLLECTION_BY_FILE_START:
-    case UPDATE_MOVIECOLLECTION_BY_FILE:
-      return true;
-    case ADD_MOVIECOLLECTION_BY_FILE_FINISHED:
-      return false;
-  }
-  return state;
-};
+const isLoading = reducer(INITIAL_STATE_FOR_ACTION_ID.isLoading, {
+  [ADD_MOVIECOLLECTION_BY_FILE_START]:    () => true,
+  [UPDATE_MOVIECOLLECTION_BY_FILE]:       () => true,
+  [ADD_MOVIECOLLECTION_BY_FILE_FINISHED]: () => false
+});
 
 const sort = (state = INITIAL_STATE_FOR_ACTION_ID.sort, action = {}) => {
   return state;
