@@ -157,15 +157,13 @@ const name = (state = INITIAL_STATE_FOR_ACTION_ID.name, action = {}) => {
 const movies = (state = INITIAL_STATE_FOR_ACTION_ID.movies, action = {}) => {
   switch (action.type) {
     case ADD_MOVIECOLLECTION_WITH_MOVIES_LINE_BY_LINE:
-      return movieUpdater(undefined, {
-        type: 'ADD_MOVIES_LINE-BY-LINE',
-        movies: action.movieCollection.movies
-      });
+      return action.movieCollection.movies
+        .split("\n")
+        .reduce((movies, movieName) => Object.assign(movies, { [Actions.idForTitle(movieName)]: { title: movieName } }), {});
+
     case UPDATE_MOVIECOLLECTION_BY_FILE:
-      return Object.assign({}, state.movies, movieUpdater(undefined, {
-          type: 'ADD_MOVIES_VIA_OBJECTS',
-          movies: action.movieCollection.movies
-        }));
+      return action.movieCollection.movies
+        .reduce((movies, movieObject) => Object.assign(movies, { [Actions.idForTitle(movieObject.title)]: movieObject }), {});
   }
   return state;
 };
@@ -177,34 +175,3 @@ const movieCollection = combineReducers({
   movies,
   name
 });
-
-
-const movieUpdater = (state = {}, action) => {
-  switch (action.type) {
-    case 'ADD_MOVIES_LINE-BY-LINE':
-      return Object.assign({}, state, action.movies
-        .split("\n")
-        .reduce((movies, movieName) => Object.assign(movies, movie(undefined, Actions.addMovie({
-          title: movieName
-        }))), {}));
-    case 'ADD_MOVIES_VIA_OBJECTS':
-      return Object.assign({}, state, action.movies
-        .reduce((movies, movieObject) => Object.assign(movies, movie(undefined, Actions.addMovie(
-          movieObject
-        ))), {}));
-    default:
-      return state;
-  }
-};
-
-const movie = (state = {}, action) => {
-  switch (action.type) {
-    case ADD_MOVIE:
-      return Object.assign({}, state, {
-        [action.id]: action.movie
-      });
-    default:
-      return state;
-  }
-};
-

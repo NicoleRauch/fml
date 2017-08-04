@@ -57,10 +57,12 @@ export const addMovieCollectionByFileFinished = (movieCollection) => {
 	}
 };
 
+export const idForTitle = title => hashCode(title);
+
 export const addMovie = (movie) => {
 	return {
 		type: ADD_MOVIE,
-		id: hashCode(movie.title),
+		id: idForTitle(movie.title),
 		movie
 	}
 };
