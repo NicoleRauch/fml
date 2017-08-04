@@ -155,15 +155,17 @@ const name = (state = INITIAL_STATE_FOR_ACTION_ID.name, action = {}) => {
 
 
 const movies = (state = INITIAL_STATE_FOR_ACTION_ID.movies, action = {}) => {
+  const moviesIntoOneCollection = (movies, movieObject) => Object.assign(movies, {[Actions.idForTitle(movieObject.title)]: movieObject});
+
   switch (action.type) {
     case ADD_MOVIECOLLECTION_WITH_MOVIES_LINE_BY_LINE:
       return action.movieCollection.movies
         .split("\n")
-        .reduce((movies, movieName) => Object.assign(movies, { [Actions.idForTitle(movieName)]: { title: movieName } }), {});
+        .map(movieName => ({ title: movieName }))
+        .reduce(moviesIntoOneCollection, {});
 
     case UPDATE_MOVIECOLLECTION_BY_FILE:
-      return action.movieCollection.movies
-        .reduce((movies, movieObject) => Object.assign(movies, { [Actions.idForTitle(movieObject.title)]: movieObject }), {});
+      return action.movieCollection.movies.reduce(moviesIntoOneCollection, {});
   }
   return state;
 };
