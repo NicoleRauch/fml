@@ -1,6 +1,5 @@
-import {
-	ADD_MOVIE_TO_PERSONAL_MOVIE_LIST,
-	FINISH_COMPARISON_PROCESS } from '../../actions/'
+import { FINISH_COMPARISON_PROCESS } from '../../actions/';
+import { ADD_MOVIE_TO_PERSONAL_MOVIE_LIST } from '../../reducers/movieCollections';
 
 export default (state = [], action) => {
 	switch(action.type) {

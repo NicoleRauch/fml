@@ -1,13 +1,13 @@
 import reducerTest from '../helper/reducerTest'
-import reducer from '../../reducers/movieCollections'
+import reducer, * as Actions from '../../reducers/movieCollections'
+
 const it = reducerTest.bind(null, reducer);
-import * as Actions from "../../actions/"
 
 describe('movieCollections reducer', () => {
 
 	it('should create collection and add movies line-by-line', {
 		stateBefore:
-		{"2603186": { 
+		{"2603186": {
 			isLoading: false,
 			name: 'Test',
 			sort: 'title',
@@ -22,7 +22,7 @@ describe('movieCollections reducer', () => {
 			movies: 'Matrix\nStar Wars\nHerr der Ringe'
 		}),
 		stateAfter:
-		{"2603186": { 
+		{"2603186": {
 			isLoading: false,
 			name: 'Test',
 			sort: 'title',

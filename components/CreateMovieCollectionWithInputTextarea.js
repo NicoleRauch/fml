@@ -1,6 +1,6 @@
 import React from 'react'
 import FormTextarea from '../components/MovieCollectionFormTextarea';
-import * as Actions from '../actions/';
+import * as Actions from '../reducers/movieCollections';
 
 export default class CreateMovieCollectionWithInputTextarea extends React.Component {
 
