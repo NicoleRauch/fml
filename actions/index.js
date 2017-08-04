@@ -5,7 +5,7 @@ export const ADD_MOVIECOLLECTION_BY_FILE_START = 'ADD_MOVIECOLLECTION_BY_FILE_ST
 export const UPDATE_MOVIECOLLECTION_BY_FILE = 'UPDATE_MOVIECOLLECTION_BY_FILE';
 export const ADD_MOVIECOLLECTION_BY_FILE_FINISHED = 'ADD_MOVIECOLLECTION_BY_FILE_FINISHED';
 
-export const addMovieCollectionWithMoviesLineByLine = (movieCollection) => {
+export const addMovieCollectionWithMoviesLineByLine = movieCollection => {
 	return {
 		type: ADD_MOVIECOLLECTION_WITH_MOVIES_LINE_BY_LINE,
 		id: hashCode(movieCollection.name),

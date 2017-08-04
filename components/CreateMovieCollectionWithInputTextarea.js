@@ -5,7 +5,7 @@ import * as Actions from '../actions/';
 export default class CreateMovieCollectionWithInputTextarea extends React.Component {
 
 	constructor (props) {
-		super(props)
+		super(props);
 		this.url = props.url;
 		this.dispatch = props.dispatch;
 		this.submit = this.submit.bind(this);
