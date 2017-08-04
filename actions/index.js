@@ -1,5 +1,3 @@
-export const ADD_MOVIE = 'ADD_MOVIE';
-
 export const ADD_MOVIECOLLECTION_WITH_MOVIES_LINE_BY_LINE = 'ADD_MOVIECOLLECTION_WITH_MOVIES_LINE_BY_LINE';
 export const ADD_MOVIECOLLECTION_BY_FILE_START = 'ADD_MOVIECOLLECTION_BY_FILE_START';
 export const UPDATE_MOVIECOLLECTION_BY_FILE = 'UPDATE_MOVIECOLLECTION_BY_FILE';
@@ -57,16 +55,6 @@ export const addMovieCollectionByFileFinished = (movieCollection) => {
 	}
 };
 
-export const idForTitle = title => hashCode(title);
-
-export const addMovie = (movie) => {
-	return {
-		type: ADD_MOVIE,
-		id: idForTitle(movie.title),
-		movie
-	}
-};
-
 export const ADD_MOVIE_TO_PERSONAL_MOVIE_LIST = 'ADD_MOVIE_TO_PERSONAL_MOVIE_LIST';
 export const addMovieToPersonalMovieList = (movieId) => {
 	return {
@@ -110,7 +98,7 @@ export const finishComparisonProcess = (id, result) => {
 	};
 };
 
-const hashCode = (titleString) => {
+export const hashCode = (titleString) => {
 	let hash = 0, length = titleString.length;
 	if (length == 0) return hash;
 	for (let i = 0; i < length; i++) {

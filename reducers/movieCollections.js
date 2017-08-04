@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
 import * as Actions from "../actions/";
 import {
-  ADD_MOVIE,
   ADD_MOVIECOLLECTION_BY_FILE_FINISHED,
   ADD_MOVIECOLLECTION_BY_FILE_START,
   ADD_MOVIECOLLECTION_WITH_MOVIES_LINE_BY_LINE,
@@ -107,6 +106,9 @@ const INITIAL_STATE = {
   }
 };
 
+const idForTitle = title => Actions.hashCode(title);
+
+
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_MOVIECOLLECTION_WITH_MOVIES_LINE_BY_LINE:
@@ -155,7 +157,7 @@ const name = (state = INITIAL_STATE_FOR_ACTION_ID.name, action = {}) => {
 
 
 const movies = (state = INITIAL_STATE_FOR_ACTION_ID.movies, action = {}) => {
-  const moviesIntoOneCollection = (movies, movieObject) => Object.assign(movies, {[Actions.idForTitle(movieObject.title)]: movieObject});
+  const moviesIntoOneCollection = (movies, movieObject) => Object.assign(movies, {[idForTitle(movieObject.title)]: movieObject});
 
   switch (action.type) {
     case ADD_MOVIECOLLECTION_WITH_MOVIES_LINE_BY_LINE:
